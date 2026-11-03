@@ -31,7 +31,7 @@ export const EnterpriseView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-700 via-sun-600 to-solar-800 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-amber-700 via-sun-600 to-solar-800 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-slate-900 bg-sun-200 px-3 py-1 rounded-full border border-sun-300">
             Stream C — Women-Led Solar Livelihoods (SHG Hub)
@@ -45,7 +45,7 @@ export const EnterpriseView: React.FC = () => {
         </div>
 
         <div className="bg-slate-950/40 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
-          <div className="text-2xl font-black text-sun-300">₹1.2 Cr</div>
+          <div className="text-2xl font-extrabold text-sun-300">₹1.2 Cr</div>
           <div className="text-[10px] text-slate-200 uppercase font-bold">Margin Money Fund</div>
         </div>
       </div>
@@ -137,7 +137,7 @@ export const EnterpriseView: React.FC = () => {
           </div>
 
           {/* Results Profit Card */}
-          <div className="bg-gradient-to-br from-solar-900 to-slate-900 rounded-3xl p-6 shadow-xl border border-slate-800 text-white flex flex-col justify-between">
+          <div className="bg-ink-900 rounded-3xl p-6 shadow-md border border-slate-800 text-white flex flex-col justify-between">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-sun-300 bg-sun-400/20 px-2.5 py-0.5 rounded">
                 Estimated Monthly Return
@@ -145,7 +145,7 @@ export const EnterpriseView: React.FC = () => {
               <h3 className="text-xl font-extrabold mt-2 text-white">
                 SHG Net Monthly Livelihood Profit
               </h3>
-              <div className="text-4xl font-black text-sun-400 mt-2 font-mono">
+              <div className="text-4xl font-extrabold text-sun-400 mt-2 font-mono">
                 ₹{monthlySHGProfit.toLocaleString()}
               </div>
               <p className="text-xs text-slate-300 mt-1">

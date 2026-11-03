@@ -48,7 +48,7 @@ export const JobsView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-solar-800 via-solar-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-sun-300 bg-sun-400/20 px-3 py-1 rounded-full border border-sun-400/30">
             Stream D — Livelihoods & Reliance Vendor Placement
@@ -62,7 +62,7 @@ export const JobsView: React.FC = () => {
         </div>
 
         <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
-          <div className="text-2xl font-black text-sun-400">74%</div>
+          <div className="text-2xl font-extrabold text-sun-400">74%</div>
           <div className="text-[10px] text-slate-300 uppercase font-bold">Placement Rate</div>
         </div>
       </div>

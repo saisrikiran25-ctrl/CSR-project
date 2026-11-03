@@ -130,7 +130,7 @@ export const Header: React.FC = () => {
 
               {/* Persona Dropdown Menu */}
               {showPersonaMenu && (
-                <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50">
+                <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 py-2 z-50">
                   <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-700">
                     <p className="text-xs font-bold text-slate-900 dark:text-white">{user.name}</p>
                     <p className="text-[11px] text-slate-500 capitalize">Role: {role}</p>

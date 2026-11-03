@@ -110,7 +110,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
       )}
 
       {/* A4 LANDSCAPE CERTIFICATE CANVAS CONTAINER */}
-      <div className="relative bg-gradient-to-br from-cream-50 via-white to-amber-50/40 p-8 sm:p-12 rounded-3xl shadow-2xl border-8 border-solar-700/80 text-slate-900 overflow-hidden font-serif">
+      <div className="relative bg-gradient-to-br from-cream-50 via-white to-amber-50/40 p-8 sm:p-12 rounded-3xl shadow-lg border-8 border-solar-700/80 text-slate-900 overflow-hidden font-serif">
         {/* Visible Guardrail Watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.06] rotate-[-25deg]">
           <span className="text-5xl sm:text-7xl font-extrabold text-slate-900 uppercase tracking-widest text-center">

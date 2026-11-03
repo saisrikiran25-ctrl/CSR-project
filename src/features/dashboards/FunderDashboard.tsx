@@ -27,7 +27,7 @@ export const FunderDashboard: React.FC = () => {
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-solar-900 via-solar-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-sun-400 bg-sun-500/10 px-3 py-1 rounded-full border border-sun-400/30">
             Reliance Foundation CSR & Sustainability Oversight
@@ -42,7 +42,7 @@ export const FunderDashboard: React.FC = () => {
 
         <button
           onClick={() => alert('Official Reliance CSR Impact Report exported as PDF (Simulated)!')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sun-500 hover:bg-sun-600 text-slate-950 font-bold text-xs shadow-lg transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-lg transition-all"
         >
           <Download className="w-4 h-4 text-slate-950" />
           <span>Download CSR Report (PDF)</span>
@@ -126,7 +126,7 @@ export const FunderDashboard: React.FC = () => {
         </div>
 
         {/* Interactive Jamnagar Regional Map SVG */}
-        <div className="relative w-full aspect-[21/9] bg-gradient-to-br from-slate-950 via-slate-900 to-solar-950 rounded-2xl overflow-hidden border border-slate-800 shadow-inner flex items-center justify-center p-4">
+        <div className="relative w-full aspect-[21/9] bg-ink-900 rounded-2xl overflow-hidden border border-slate-800 shadow-inner flex items-center justify-center p-4">
           <svg className="w-full h-full" viewBox="0 0 800 360">
             {/* Arabian Sea / Gulf of Kutch Coastline Backdrop */}
             <path

@@ -28,7 +28,7 @@ export const SmsSimulatorToast: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-md bg-slate-900/95 text-white backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-sun-400/30 animate-bounce-once transition-all">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-md bg-slate-900/95 text-white backdrop-blur-md rounded-2xl p-4 shadow-lg border border-sun-400/30 animate-bounce-once transition-all">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-sun-400 font-semibold text-sm">
           <MessageSquare className="w-5 h-5 text-sun-400 animate-pulse" />

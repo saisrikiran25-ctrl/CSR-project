@@ -89,7 +89,7 @@ export const RegisterView: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-800">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800">
         {/* STEP 1: MOBILE OTP */}
         {step === 1 && (
           <div className="space-y-4">

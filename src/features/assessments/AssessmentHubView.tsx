@@ -97,7 +97,7 @@ export const AssessmentHubView: React.FC = () => {
         />
       ) : examAttempt ? (
         /* SCORE REPORT VIEW */
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
           <div className="text-center space-y-2 border-b border-slate-200 dark:border-slate-800 pb-6">
             <div
               className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center ${

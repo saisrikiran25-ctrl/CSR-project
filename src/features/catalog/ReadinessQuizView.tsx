@@ -65,7 +65,7 @@ export const ReadinessQuizView: React.FC = () => {
 
   return (
     <div className="max-w-xl mx-auto py-8 space-y-6">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
         {!showResults ? (
           <>
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">

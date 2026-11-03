@@ -75,7 +75,7 @@ export const LessonPlayerView: React.FC = () => {
 
         <Link
           to="/tests"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sun-500 hover:bg-sun-600 text-slate-950 font-bold text-xs shadow-md transition-all active:scale-95"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-md transition-all active:scale-95"
         >
           <Award className="w-4 h-4 text-slate-950" />
           <span>Take Module Assessment →</span>

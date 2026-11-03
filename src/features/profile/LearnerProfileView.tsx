@@ -64,13 +64,13 @@ export const LearnerProfileView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header Profile Card */}
-      <div className="bg-gradient-to-r from-solar-700 via-solar-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
         <div className="absolute right-0 top-0 w-64 h-64 bg-sun-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
           {/* Avatar with Job-Ready Badge */}
           <div className="relative">
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-sun-400 to-amber-500 p-1 shadow-2xl flex items-center justify-center text-3xl font-extrabold text-slate-950">
+            <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-sun-400 to-amber-500 p-1 shadow-lg flex items-center justify-center text-3xl font-extrabold text-slate-950">
               {profile.name.charAt(0)}
             </div>
             {profile.isJobReady && (

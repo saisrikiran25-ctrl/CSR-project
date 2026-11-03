@@ -125,7 +125,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
       : lesson.manifest.sizeKB.video360;
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
+    <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800">
       {/* Player Header & Mode Switcher */}
       <div className="bg-slate-900 text-white p-4 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
         <div>
@@ -182,7 +182,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
         {/* MODE 1: AUDIO-ONLY PODCAST PLAYER */}
         {mode === 'audio' && (
           <div className="w-full max-w-lg text-center space-y-6 py-8">
-            <div className="relative mx-auto w-36 h-36 rounded-full bg-gradient-to-tr from-solar-600 to-sun-400 p-1 flex items-center justify-center shadow-2xl">
+            <div className="relative mx-auto w-36 h-36 rounded-full bg-gradient-to-tr from-solar-600 to-sun-400 p-1 flex items-center justify-center shadow-lg">
               <div
                 className={`w-full h-full rounded-full bg-slate-900 flex items-center justify-center ${
                   isPlaying ? 'animate-pulse' : ''
@@ -225,9 +225,9 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
         {/* MODE 2: ADAPTIVE VIDEO EXPLORER */}
         {mode === 'video' && (
-          <div className="w-full max-w-3xl aspect-video bg-slate-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-slate-800 shadow-2xl">
+          <div className="w-full max-w-3xl aspect-video bg-slate-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-slate-800 shadow-lg">
             {/* Simulated Animated Video Canvas */}
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-950 via-solar-950 to-slate-900">
+            <div className="absolute inset-0 flex items-center justify-center bg-ink-900">
               <svg className="w-full h-full opacity-80" viewBox="0 0 600 350">
                 <defs>
                   <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
@@ -299,7 +299,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
         {/* MODE 3: AUDIO-VISUAL (SYNCHRONIZED INTERACTIVE SIMULATOR) */}
         {mode === 'av' && (
-          <div className="w-full max-w-3xl bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 text-white shadow-2xl">
+          <div className="w-full max-w-3xl bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 text-white shadow-lg">
             {/* Interactive Tab Switcher inside AV Mode */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
               <div className="flex items-center gap-2 text-xs font-bold text-sun-400">
@@ -478,7 +478,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
         <div className="space-y-1.5">
           <div className="relative w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full cursor-pointer overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-solar-600 to-sun-500 rounded-full transition-all duration-300"
+              className="h-full bg-solar-600 rounded-full transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

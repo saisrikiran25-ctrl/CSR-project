@@ -211,7 +211,7 @@ export const PitchTourView: React.FC = () => {
       </div>
 
       {/* Main Pitch Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
             <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
