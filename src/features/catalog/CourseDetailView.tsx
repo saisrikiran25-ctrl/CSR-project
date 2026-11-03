@@ -7,7 +7,7 @@ import { Clock, Layers, ChevronDown, Play, Volume2, Video, Presentation } from '
 
 export const CourseDetailView: React.FC = () => {
   const { courseId } = useParams();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang = (i18n.language || 'gu') as 'gu' | 'hi' | 'en';
 
   const [course, setCourse] = useState<Course | null>(null);
@@ -28,7 +28,7 @@ export const CourseDetailView: React.FC = () => {
   }, [courseId]);
 
   if (!course) {
-    return <div className="p-8 text-center text-slate-500">Loading course outline...</div>;
+    return <div className="p-8 text-center text-slate-500">{t('course.loading')}</div>;
   }
 
   const totalLessons = course.modules.reduce((n, m) => n + m.lessons.length, 0);
@@ -40,10 +40,10 @@ export const CourseDetailView: React.FC = () => {
       <div className="rounded-2xl bg-ink-900 text-white p-6 sm:p-10 relative overflow-hidden">
         <div className="relative space-y-4 max-w-3xl">
           <Link to="/learn" className="text-xs text-slate-300 hover:text-white">
-            ← All courses
+            {t('course.back')}
           </Link>
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="px-2.5 py-0.5 rounded-full font-semibold bg-white/15">Stream {course.stream}</span>
+            <span className="px-2.5 py-0.5 rounded-full font-semibold bg-white/15">{t('catalogue.stream')} {course.stream}</span>
             <span className="font-mono text-slate-300">{course.code}</span>
             {course.nsqfLevel && (
               <span className="px-2.5 py-0.5 rounded-full font-semibold bg-emerald-500/20 text-emerald-300">
@@ -62,14 +62,14 @@ export const CourseDetailView: React.FC = () => {
 
           <div className="flex flex-wrap gap-5 text-sm text-slate-200 pt-1">
             <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-sun-400" /> {course.durationHours} hours
+              <Clock className="w-4 h-4 text-sun-400" /> {course.durationHours} {t('course.hours')}
             </div>
             <div className="flex items-center gap-1.5">
-              <Layers className="w-4 h-4 text-sun-400" /> {course.modulesCount} modules
+              <Layers className="w-4 h-4 text-sun-400" /> {course.modulesCount} {t('catalogue.modules')}
             </div>
             {totalLessons > 0 && (
               <div className="flex items-center gap-1.5">
-                <Play className="w-4 h-4 text-sun-400" /> {totalLessons} lessons
+                <Play className="w-4 h-4 text-sun-400" /> {totalLessons} {t('course.lessons')}
               </div>
             )}
           </div>
@@ -79,7 +79,7 @@ export const CourseDetailView: React.FC = () => {
               to={`/learn/${course.id}/${firstLesson.id}`}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-solar-500 hover:bg-solar-400 text-white font-semibold text-sm transition-colors mt-2"
             >
-              <Play className="w-4 h-4" /> Start course
+              <Play className="w-4 h-4" /> {t('course.start_course')}
             </Link>
           )}
         </div>
@@ -87,11 +87,11 @@ export const CourseDetailView: React.FC = () => {
 
       {/* Syllabus */}
       <div className="space-y-3">
-        <h2 className="text-lg font-bold text-slate-900">Course content</h2>
+        <h2 className="text-lg font-bold text-slate-900">{t('course.content')}</h2>
 
         {course.modules.length === 0 ? (
           <div className="p-8 text-center bg-white rounded-xl border border-dashed border-slate-300 text-sm text-slate-500">
-            Syllabus outline active. Full multimedia modules are in preparation for upcoming cohorts.
+            {t('course.empty')}
           </div>
         ) : (
           <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-200 overflow-hidden">
@@ -114,7 +114,7 @@ export const CourseDetailView: React.FC = () => {
                           {module.title[lang] || module.title.en}
                         </h3>
                         <p className="text-xs text-slate-500 mt-0.5">
-                          {module.lessons.length} lessons · {module.durationHours} h
+                          {module.lessons.length} {t('course.lessons')} · {module.durationHours} {t('catalogue.h')}
                         </p>
                       </div>
                     </div>
@@ -142,17 +142,17 @@ export const CourseDetailView: React.FC = () => {
                             <div className="flex items-center gap-1.5 text-xs text-slate-600">
                               {lesson.modes.includes('audio') && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">
-                                  <Volume2 className="w-3 h-3 text-solar-600" /> Audio
+                                  <Volume2 className="w-3 h-3 text-solar-600" /> {t('course.audio')}
                                 </span>
                               )}
                               {lesson.modes.includes('video') && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">
-                                  <Video className="w-3 h-3 text-emerald-600" /> Video
+                                  <Video className="w-3 h-3 text-emerald-600" /> {t('course.video')}
                                 </span>
                               )}
                               {lesson.modes.includes('av') && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">
-                                  <Presentation className="w-3 h-3 text-amber-600" /> Interactive
+                                  <Presentation className="w-3 h-3 text-amber-600" /> {t('course.interactive')}
                                 </span>
                               )}
                             </div>
@@ -162,7 +162,7 @@ export const CourseDetailView: React.FC = () => {
                             to={`/learn/${course.id}/${lesson.id}`}
                             className="inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full border border-solar-600 text-solar-700 hover:bg-solar-600 hover:text-white font-semibold text-sm transition-colors flex-shrink-0"
                           >
-                            <Play className="w-3.5 h-3.5" /> Start
+                            <Play className="w-3.5 h-3.5" /> {t('course.start')}
                           </Link>
                         </div>
                       ))}

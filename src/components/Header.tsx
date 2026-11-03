@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
             { to: '/tests', label: t('nav.tests') },
             { to: '/jobs', label: t('nav.jobs') },
             { to: '/community', label: t('nav.community') },
-            { to: '/enterprise', label: 'SHG Enterprise' },
+            { to: '/enterprise', label: t('nav.enterprise') },
           ].map(l => (
             <NavLink
               key={l.to}

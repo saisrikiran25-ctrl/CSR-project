@@ -7,15 +7,15 @@ import { CourseThumb } from '../../components/CourseThumb';
 import { BookOpen, Clock, Award, Search, Star } from 'lucide-react';
 
 const STREAMS = [
-  { id: 'ALL', label: 'All' },
-  { id: 'B', label: 'Technical (PV)' },
-  { id: 'C', label: 'Women SHG' },
-  { id: 'D', label: 'Placement' },
-  { id: 'A', label: 'Solar & Climate' },
+  { id: 'ALL', key: 'f_all' },
+  { id: 'B', key: 'f_tech' },
+  { id: 'C', key: 'f_women' },
+  { id: 'D', key: 'f_place' },
+  { id: 'A', key: 'f_solar' },
 ];
 
 export const CatalogueView: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang = (i18n.language || 'gu') as 'gu' | 'hi' | 'en';
 
   const [courses, setCourses] = useState<Course[]>([]);
@@ -45,9 +45,9 @@ export const CatalogueView: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Courses</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">{t('catalogue.title')}</h1>
           <p className="text-sm text-slate-600 mt-1 max-w-xl">
-            Suryamitra-aligned technician training, women-led solar enterprise and workplace readiness.
+            {t('catalogue.subtitle')}
           </p>
         </div>
         <Link
@@ -55,7 +55,7 @@ export const CatalogueView: React.FC = () => {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-solar-600 hover:bg-solar-700 text-white font-semibold text-sm transition-colors self-start md:self-auto"
         >
           <Star className="w-4 h-4" />
-          Resume flagship lesson
+          {t('catalogue.resume')}
         </Link>
       </div>
 
@@ -72,7 +72,7 @@ export const CatalogueView: React.FC = () => {
                   : 'bg-white border-slate-300 text-slate-700 hover:border-slate-500'
               }`}
             >
-              {s.label}
+              {t(`catalogue.${s.key}`)}
             </button>
           ))}
         </div>
@@ -83,14 +83,14 @@ export const CatalogueView: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search courses or topics"
+            placeholder={t('catalogue.search')}
             className="w-full text-sm pl-10 pr-4 py-2.5 rounded-full border border-slate-300 bg-white outline-none focus:border-solar-600 focus:ring-2 focus:ring-solar-100"
           />
         </div>
       </div>
 
       <p className="text-xs text-slate-500">
-        {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'}
+        {filteredCourses.length} {t('catalogue.count')}
       </p>
 
       {/* Course Cards */}
@@ -111,12 +111,12 @@ export const CatalogueView: React.FC = () => {
               <div className="absolute top-3 left-3 flex gap-1.5">
                 {course.isFlagship && (
                   <span className="px-2 py-0.5 rounded text-xs font-bold bg-amber-400 text-slate-900">
-                    FLAGSHIP
+                    {t('catalogue.flagship')}
                   </span>
                 )}
                 {course.isWomenCentric && (
                   <span className="px-2 py-0.5 rounded text-xs font-bold bg-rose-600 text-white">
-                    WOMEN SHG
+                    {t('catalogue.women_badge')}
                   </span>
                 )}
               </div>
@@ -124,7 +124,7 @@ export const CatalogueView: React.FC = () => {
 
             <div className="p-5 flex-1 flex flex-col">
               <div className="text-xs font-semibold text-slate-500 ">
-                Stream {course.stream} · {course.code}
+                {t('catalogue.stream')} {course.stream} · {course.code}
               </div>
               <h3 className="text-base font-bold text-slate-900 mt-1 leading-snug line-clamp-2 group-hover:text-solar-700 transition-colors">
                 {course.title[lang] || course.title.en}
@@ -135,10 +135,10 @@ export const CatalogueView: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500 pt-4 mt-4 border-t border-slate-100">
                 <span className="inline-flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" /> {course.durationHours} h
+                  <Clock className="w-3.5 h-3.5" /> {course.durationHours} {t('catalogue.h')}
                 </span>
                 <span className="inline-flex items-center gap-1">
-                  <BookOpen className="w-3.5 h-3.5" /> {course.modulesCount} modules
+                  <BookOpen className="w-3.5 h-3.5" /> {course.modulesCount} {t('catalogue.modules')}
                 </span>
                 {course.nsqfLevel && (
                   <span className="inline-flex items-center gap-1 text-emerald-700 font-medium">
@@ -153,7 +153,7 @@ export const CatalogueView: React.FC = () => {
 
       {filteredCourses.length === 0 && (
         <div className="text-center py-16 bg-white rounded-xl border border-dashed border-slate-300 text-sm text-slate-500">
-          No courses match your search. Try a different keyword or stream.
+          {t('catalogue.none')}
         </div>
       )}
     </div>

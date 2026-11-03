@@ -27,13 +27,13 @@ import {
 type NavItem = { to: string; label: string; icon: React.ComponentType<{ className?: string }> };
 
 const consoles: NavItem[] = [
-  { to: '/trainer', label: 'Trainer Hub', icon: Layers },
-  { to: '/coordinator', label: 'Coordinator', icon: Compass },
-  { to: '/assessor', label: 'External Assessor', icon: FileCheck2 },
-  { to: '/employer', label: 'Employer / Vendor', icon: Building2 },
-  { to: '/pm', label: 'Project Manager & M&E', icon: BarChart3 },
-  { to: '/funder', label: 'Funder (Reliance CSR)', icon: Star },
-  { to: '/admin', label: 'Super Admin', icon: Shield },
+  { to: '/trainer', label: 'side.trainer', icon: Layers },
+  { to: '/coordinator', label: 'side.coordinator', icon: Compass },
+  { to: '/assessor', label: 'side.assessor', icon: FileCheck2 },
+  { to: '/employer', label: 'side.employer', icon: Building2 },
+  { to: '/pm', label: 'side.pm', icon: BarChart3 },
+  { to: '/funder', label: 'side.funder', icon: Star },
+  { to: '/admin', label: 'side.admin', icon: Shield },
 ];
 
 export const Layout: React.FC = () => {
@@ -43,11 +43,11 @@ export const Layout: React.FC = () => {
   const mainNav: NavItem[] = [
     { to: '/', label: t('nav.home'), icon: Home },
     { to: '/learn', label: t('nav.learn'), icon: BookOpen },
-    { to: '/tests', label: `${t('nav.tests')} & Certificates`, icon: Award },
-    { to: '/jobs', label: `${t('nav.jobs')} & Vendors`, icon: Briefcase },
-    { to: '/enterprise', label: 'Women SHG Enterprise', icon: Zap },
+    { to: '/tests', label: t('side.tests_certs'), icon: Award },
+    { to: '/jobs', label: t('side.jobs_vendors'), icon: Briefcase },
+    { to: '/enterprise', label: t('side.shg'), icon: Zap },
     { to: '/community', label: t('nav.community'), icon: Users },
-    { to: '/profile', label: `${t('nav.profile')} & Passport`, icon: User },
+    { to: '/profile', label: t('side.profile_passport'), icon: User },
   ];
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
@@ -81,13 +81,13 @@ export const Layout: React.FC = () => {
 
             <div className="bg-white dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800">
               <div className="text-xs font-semibold text-slate-500 px-3 pt-2 pb-1">
-                Role consoles
+                {t('side.role_consoles')}
               </div>
               <nav className="space-y-0.5">
                 {consoles.map(item => (
                   <NavLink key={item.to} to={item.to} className={linkClass}>
                     <item.icon className="w-4 h-4" />
-                    <span className="text-[13px]">{item.label}</span>
+                    <span className="text-[13px]">{t(item.label)}</span>
                   </NavLink>
                 ))}
               </nav>
@@ -110,7 +110,7 @@ export const Layout: React.FC = () => {
           <div className="flex items-center gap-3">
             <img src="/sun-icon.svg" alt="" className="w-6 h-6" />
             <span className="font-semibold text-slate-700">
-              Turning clean energy into clean livelihoods, one village hub at a time.
+              {t('brand.tagline')}
             </span>
           </div>
           <div className="text-xs space-y-0.5">
