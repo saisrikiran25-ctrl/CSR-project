@@ -24,181 +24,71 @@ import {
   Sparkles,
 } from 'lucide-react';
 
+type NavItem = { to: string; label: string; icon: React.ComponentType<{ className?: string }> };
+
+const consoles: NavItem[] = [
+  { to: '/trainer', label: 'Trainer Hub', icon: Layers },
+  { to: '/coordinator', label: 'Coordinator', icon: Compass },
+  { to: '/assessor', label: 'External Assessor', icon: FileCheck2 },
+  { to: '/employer', label: 'Employer / Vendor', icon: Building2 },
+  { to: '/pm', label: 'Project Manager & M&E', icon: BarChart3 },
+  { to: '/funder', label: 'Funder (Reliance CSR)', icon: Sparkles },
+  { to: '/admin', label: 'Super Admin', icon: Shield },
+];
+
 export const Layout: React.FC = () => {
   const { t } = useTranslation();
-  const { user, role } = useAuth();
+  const { user } = useAuth();
+
+  const mainNav: NavItem[] = [
+    { to: '/', label: t('nav.home'), icon: Home },
+    { to: '/learn', label: t('nav.learn'), icon: BookOpen },
+    { to: '/tests', label: `${t('nav.tests')} & Certificates`, icon: Award },
+    { to: '/jobs', label: `${t('nav.jobs')} & Vendors`, icon: Briefcase },
+    { to: '/enterprise', label: 'Women SHG Enterprise', icon: Zap },
+    { to: '/community', label: t('nav.community'), icon: Users },
+    { to: '/profile', label: `${t('nav.profile')} & Passport`, icon: User },
+  ];
+
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors border-l-2 ${
+      isActive
+        ? 'bg-solar-50 text-solar-700 border-solar-600 font-semibold'
+        : 'text-slate-600 dark:text-slate-300 border-transparent hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900'
+    }`;
 
   return (
-    <div className="min-h-screen flex flex-col bg-cream-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100">
+    <div className="min-h-screen flex flex-col bg-cream-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100">
       <MockBanner />
       <SmsSimulatorToast />
       <Header />
 
-      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex gap-6">
-        {/* Desktop Sidebar Rail */}
-        <aside className="hidden lg:block w-64 flex-shrink-0">
-          <div className="sticky top-24 bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6">
-            <div>
-              <div className="text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider px-3 mb-2">
-                Learning & Livelihood
-              </div>
-              <nav className="space-y-1">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <Home className="w-4 h-4" />
-                  <span>{t('nav.home')}</span>
-                </NavLink>
-
-                <NavLink
-                  to="/learn"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <BookOpen className="w-4 h-4" />
-                  <span>{t('nav.learn')} (Courses)</span>
-                </NavLink>
-
-                <NavLink
-                  to="/tests"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <Award className="w-4 h-4" />
-                  <span>{t('nav.tests')} & Certs</span>
-                </NavLink>
-
-                <NavLink
-                  to="/jobs"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <Briefcase className="w-4 h-4" />
-                  <span>{t('nav.jobs')} & Vendors</span>
-                </NavLink>
-
-                <NavLink
-                  to="/enterprise"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <Zap className="w-4 h-4 text-sun-500" />
-                  <span>Women SHG Enterprise</span>
-                </NavLink>
-
-                <NavLink
-                  to="/profile"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <User className="w-4 h-4" />
-                  <span>{t('nav.profile')} & Passport</span>
-                </NavLink>
-
-                <NavLink
-                  to="/community"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'bg-solar-600 text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`
-                  }
-                >
-                  <Users className="w-4 h-4" />
-                  <span>{t('nav.community')}</span>
-                </NavLink>
+      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex gap-8">
+        {/* Desktop Sidebar */}
+        <aside className="hidden lg:block w-60 flex-shrink-0">
+          <div className="sticky top-24 space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800">
+              <nav className="space-y-0.5">
+                {mainNav.map(item => (
+                  <NavLink key={item.to} to={item.to} end={item.to === '/'} className={linkClass}>
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </NavLink>
+                ))}
               </nav>
             </div>
 
-            {/* Stakeholder Consoles */}
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider px-3 mb-2 flex items-center justify-between">
-                <span>Role Consoles</span>
-                <span className="text-[9px] bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-1 py-0.5 rounded">All Roles</span>
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800">
+              <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider px-3 pt-2 pb-1">
+                Role consoles
               </div>
-              <nav className="space-y-0.5 text-xs font-medium">
-                <Link
-                  to="/trainer"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Layers className="w-3.5 h-3.5 text-solar-500" />
-                  <span>Trainer Hub Lab</span>
-                </Link>
-                <Link
-                  to="/coordinator"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Compass className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Coordinator Mobiliser</span>
-                </Link>
-                <Link
-                  to="/assessor"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <FileCheck2 className="w-3.5 h-3.5 text-amber-500" />
-                  <span>SCGJ External Assessor</span>
-                </Link>
-                <Link
-                  to="/employer"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Building2 className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Employer / Vendor</span>
-                </Link>
-                <Link
-                  to="/pm"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <BarChart3 className="w-3.5 h-3.5 text-rose-500" />
-                  <span>Project Manager & M&E</span>
-                </Link>
-                <Link
-                  to="/funder"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-solar-600 dark:text-solar-400"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-sun-500" />
-                  <span>Funder (Reliance CSR)</span>
-                </Link>
-                <Link
-                  to="/admin"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Shield className="w-3.5 h-3.5 text-slate-500" />
-                  <span>Super Admin</span>
-                </Link>
+              <nav className="space-y-0.5">
+                {consoles.map(item => (
+                  <NavLink key={item.to} to={item.to} className={linkClass}>
+                    <item.icon className="w-4 h-4" />
+                    <span className="text-[13px]">{item.label}</span>
+                  </NavLink>
+                ))}
               </nav>
             </div>
           </div>
@@ -210,29 +100,23 @@ export const Layout: React.FC = () => {
         </main>
       </div>
 
-      {/* Persistent Floating Audio Help Button */}
       <VoiceGuideButton />
-
-      {/* Mobile Bottom Navigation */}
       <BottomNav />
 
-      {/* Footer */}
-      <footer className="mt-auto bg-slate-900 text-slate-400 text-xs py-8 px-4 border-t border-slate-800">
+      <footer className="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="flex items-center gap-3 justify-center md:justify-start">
-            <img src="/sun-icon.svg" alt="Urja Kaushal" className="w-6 h-6" />
-            <span className="font-semibold text-slate-200">
-              Urja Kaushal: Turning clean energy into clean livelihoods, one village hub at a time.
+          <div className="flex items-center gap-3">
+            <img src="/sun-icon.svg" alt="" className="w-6 h-6" />
+            <span className="font-semibold text-slate-700">
+              Turning clean energy into clean livelihoods, one village hub at a time.
             </span>
           </div>
-
-          <div className="text-slate-400 text-[11px] space-y-1">
-            <p>A Reliance Foundation CSR initiative (proposal prototype Team 5, IPM 2025-30).</p>
-            <p>10 Hubs • 6,000 Beneficiaries • 50%+ Women • 375 MWh/yr Clean Solar Generation.</p>
+          <div className="text-[11px] space-y-0.5">
+            <p>A Reliance Foundation CSR initiative · proposal prototype, Team 5, IPM 2025-30.</p>
+            <p>10 hubs · 6,000 beneficiaries · 50%+ women · 375 MWh/yr clean solar generation.</p>
           </div>
         </div>
       </footer>
     </div>
   );
 };
-

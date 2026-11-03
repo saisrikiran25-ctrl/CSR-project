@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../features/auth/AuthContext';
 import { changeLanguage } from '../i18n';
@@ -31,36 +31,52 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
         {/* Logo / Brand */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sun-400 to-solar-600 p-0.5 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
-            <img src="/sun-icon.svg" alt="Urja Kaushal Logo" className="w-9 h-9" />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-lg sm:text-xl text-solar-700 dark:text-solar-300 tracking-tight leading-none">
-                Urja Kaushal
-              </span>
-              <span className="hidden sm:inline-block text-xs font-semibold px-1.5 py-0.5 rounded bg-sun-100 text-amber-800 border border-sun-300">
-                ઊર્જા કૌશલ્ય
-              </span>
-            </div>
-            <p className="text-[10px] text-slate-700 dark:text-slate-200 leading-tight">
-              Jamnagar Solar Livelihoods • Reliance Foundation CSR
-            </p>
+        <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <img src="/sun-icon.svg" alt="Urja Kaushal Logo" className="w-9 h-9" />
+          <div className="leading-tight">
+            <span className="block font-extrabold text-[17px] text-slate-900 dark:text-white tracking-tight">
+              Urja Kaushal
+            </span>
+            <span className="hidden sm:block text-[11px] text-slate-500">ઊર્જા કૌશલ્ય · Learning</span>
           </div>
         </Link>
+
+        {/* Primary nav (desktop) */}
+        <nav className="hidden lg:flex items-center gap-1 ml-6 mr-auto">
+          {[
+            { to: '/learn', label: t('nav.learn') },
+            { to: '/tests', label: t('nav.tests') },
+            { to: '/jobs', label: t('nav.jobs') },
+            { to: '/community', label: t('nav.community') },
+            { to: '/enterprise', label: 'SHG Enterprise' },
+          ].map(l => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `relative px-3 h-16 inline-flex items-center text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'text-slate-900 after:absolute after:left-2 after:right-2 after:bottom-0 after:h-0.5 after:bg-solar-600'
+                    : 'text-slate-500 hover:text-slate-900'
+                }`
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Pitch Mode Shortcut */}
           <Link
             to="/pitch"
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-sun-500 to-amber-500 text-slate-950 font-bold text-xs shadow hover:brightness-105 transition-all"
+            className="hidden xl:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-solar-600 text-solar-600 hover:bg-solar-50 font-semibold text-xs transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+            <Sparkles className="w-3.5 h-3.5" />
             <span>{t('nav.pitch')}</span>
           </Link>
 
@@ -68,7 +84,7 @@ export const Header: React.FC = () => {
           <VoiceGuideButton inline />
 
           {/* Language Selector */}
-          <div className="relative flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
+          <div className="relative flex items-center rounded-full px-1 border border-slate-300 dark:border-slate-700 hover:bg-slate-50">
             <Globe className="w-3.5 h-3.5 ml-1.5 text-slate-700 dark:text-slate-200" />
             <select
               aria-label={t('common.select_language')}
@@ -99,7 +115,7 @@ export const Header: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setShowPersonaMenu(!showPersonaMenu)}
-                className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-solar-50 dark:bg-solar-900/40 border border-solar-200 dark:border-solar-700 text-xs text-solar-800 dark:text-solar-200 font-medium hover:bg-solar-100 transition-colors"
+                className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-slate-300 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-200 font-medium hover:bg-slate-50 transition-colors"
                 aria-expanded={showPersonaMenu}
               >
                 <div className="w-6 h-6 rounded-full bg-solar-600 text-white flex items-center justify-center font-bold text-[10px]">
@@ -107,14 +123,14 @@ export const Header: React.FC = () => {
                 </div>
                 <div className="hidden sm:block text-left">
                   <div className="font-bold leading-tight">{user.name.split(' ')[0]}</div>
-                  <div className="text-[10px] text-amber-600 dark:text-amber-400 capitalize">{role}</div>
+                  <div className="text-[10px] text-slate-500 capitalize">{role}</div>
                 </div>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
               </button>
 
               {/* Persona Dropdown Menu */}
               {showPersonaMenu && (
-                <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 py-2 z-50">
+                <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50">
                   <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-700">
                     <p className="text-xs font-bold text-slate-900 dark:text-white">{user.name}</p>
                     <p className="text-[11px] text-slate-500 capitalize">Role: {role}</p>
@@ -187,9 +203,9 @@ export const Header: React.FC = () => {
           ) : (
             <Link
               to="/login"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-sm transition-all"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-solar-600 hover:bg-solar-700 text-white font-semibold text-xs transition-colors"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-sun-300" />
+              <ShieldCheck className="w-3.5 h-3.5" />
               <span>{t('nav.login')}</span>
             </Link>
           )}
