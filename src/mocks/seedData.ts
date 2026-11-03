@@ -465,7 +465,7 @@ export const SEEDED_COURSES: Course[] = [
     isWomenCentric: true,
     modulesCount: 6,
     lessonsCount: 18,
-    thumbnail: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=600&auto=format&fit=crop&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1641749572766-08a4c9dadebd?w=600&auto=format&fit=crop&q=80',
     modules: [
       {
         id: 'mod_w1_dryers',
