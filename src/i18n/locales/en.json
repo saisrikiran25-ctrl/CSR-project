@@ -1,0 +1,64 @@
+{
+  "brand": {
+    "name": "Urja Kaushal",
+    "sub": "Solar Livelihoods Platform",
+    "tagline": "Turning clean energy into clean livelihoods, one village hub at a time."
+  },
+  "nav": {
+    "home": "Home",
+    "learn": "Learn",
+    "tests": "Tests",
+    "jobs": "Jobs",
+    "enterprise": "Enterprise",
+    "profile": "Profile",
+    "community": "Community",
+    "verify": "Verify Cert",
+    "listen": "Listen",
+    "stop": "Stop",
+    "login": "Sign In",
+    "logout": "Sign Out",
+    "pitch": "Pitch Tour"
+  },
+  "common": {
+    "mock_banner": "PROPOSAL PROTOTYPE — Simulated data & sample certificates. Not connected to live NSDC/Reliance systems.",
+    "select_language": "Choose Language",
+    "continue": "Continue",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "download": "Download",
+    "share": "Share",
+    "hours": "Hours",
+    "complete": "Completed",
+    "in_progress": "In Progress",
+    "hub": "Village Hub",
+    "cluster": "Cluster",
+    "data_saver": "Data Saver Mode"
+  },
+  "auth": {
+    "mobile_label": "Enter Mobile Number",
+    "otp_label": "Enter 6-Digit OTP",
+    "send_otp": "Send OTP",
+    "verify_otp": "Verify & Continue",
+    "demo_personas": "Demo Accounts (Instant One-Click Login)",
+    "sms_simulator_title": "Simulated SMS Notification",
+    "sms_simulator_body": "Your Urja Kaushal security code is: "
+  },
+  "player": {
+    "audio_mode": "Audio Lesson",
+    "video_mode": "Video Lesson",
+    "av_mode": "Interactive AV Diagram",
+    "speed": "Speed",
+    "data_estimate": "Estimated Data Usage",
+    "transcript": "Lesson Transcript",
+    "repeat_15": "Back 15s",
+    "practical_checklist": "Hub Lab Practical Checklist"
+  },
+  "certificate": {
+    "title": "Skill Certificate — Solar PV Technician",
+    "sample_watermark": "SAMPLE / PROTOTYPE — NOT AN OFFICIAL CERTIFICATE",
+    "verify_btn": "Verify Authenticity Online",
+    "share_whatsapp": "Share to WhatsApp"
+  }
+}
+

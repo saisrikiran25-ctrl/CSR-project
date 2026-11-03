@@ -1,0 +1,122 @@
+import { DemoPersona } from './types';
+
+export const DEMO_PERSONAS: DemoPersona[] = [
+  {
+    id: 'user_learner_meera',
+    name: 'Meera Ben Rathod',
+    role: 'learner',
+    roleLabel: {
+      gu: 'તાલીમાર્થી (મહિલા SHG)',
+      hi: 'प्रशिक्षु (महिला एसएचजी)',
+      en: 'Learner (Women SHG)',
+    },
+    identifier: '+91 98765 43210',
+    badge: 'Moti Khavdi Hub',
+    description: '580/600 hours completed, certified solar technician, SHG food dryer leader.',
+  },
+  {
+    id: 'user_learner_rahul',
+    name: 'Rahul Vaghela',
+    role: 'learner',
+    roleLabel: {
+      gu: 'તાલીમાર્થી (યુવા)',
+      hi: 'प्रशिक्षु (युवा)',
+      en: 'Learner (Youth)',
+    },
+    identifier: '+91 98765 43211',
+    badge: 'Rangpar Cluster',
+    description: '120/600 hours completed, taking Module 2 solar cells, 12th pass.',
+  },
+  {
+    id: 'user_trainer_amit',
+    name: 'Amit Patel (Lead PV Trainer)',
+    role: 'trainer',
+    roleLabel: {
+      gu: 'મુખ્ય ટ્રેનર',
+      hi: 'मुख्य ट्रेनर',
+      en: 'Master Trainer',
+    },
+    identifier: 'trainer.jambuda@urjakaushal.org',
+    badge: 'Jambuda Hub Lab',
+    description: 'Manages cohorts, marks lab attendance, scores practical wire tests.',
+  },
+  {
+    id: 'user_coord_bhavna',
+    name: 'Bhavna Ben Parmar',
+    role: 'coordinator',
+    roleLabel: {
+      gu: 'કમ્યુનિટી કોઓર્ડિનેટર',
+      hi: 'समुदाय समन्वयक',
+      en: 'Community Coordinator',
+    },
+    identifier: 'coord.danidhar@urjakaushal.org',
+    badge: 'Danidhar Mobilisation',
+    description: 'Drives cluster onboarding, dropout risk interventions, SHG linkages.',
+  },
+  {
+    id: 'user_assessor_joshi',
+    name: 'Dr. R. K. Joshi',
+    role: 'assessor',
+    roleLabel: {
+      gu: 'થર્ડ-પાર્ટી એસેસર (SCGJ)',
+      hi: 'तृतीय-पक्ष परीक्षक (SCGJ)',
+      en: 'Third-Party Assessor',
+    },
+    identifier: 'assessor.joshi@scgj-eval.mock',
+    badge: 'SCGJ External Panel',
+    description: 'Independent evaluation, conducts practical rubrics and signs final certificates.',
+  },
+  {
+    id: 'user_employer_reliance',
+    name: 'Saurashtra Solar EPC (Reliance Vendor)',
+    role: 'employer',
+    roleLabel: {
+      gu: 'વેન્ડર એમ્પ્લોયર',
+      hi: 'वेंडर नियोक्ता',
+      en: 'Vendor Employer',
+    },
+    identifier: 'vendor.recruiter@solartech.mock',
+    badge: 'Jamnagar EPC Network',
+    description: 'Posts solar installer jobs, shortlists certified candidates, confirms placements.',
+  },
+  {
+    id: 'user_pm_sneha',
+    name: 'Sneha Sharma (Programme Manager)',
+    role: 'pm',
+    roleLabel: {
+      gu: 'પ્રોજેક્ટ મેનેજર / M&E',
+      hi: 'प्रोजेक्ट मैनेजर / M&E',
+      en: 'Project Manager / M&E',
+    },
+    identifier: 'pm.sneha@urjakaushal.org',
+    badge: 'Jamnagar PMU',
+    description: 'Tracks 6,000 target KPIs, 10 hubs, 70% earnings, budget & risk register.',
+  },
+  {
+    id: 'user_funder_rf',
+    name: 'Reliance Foundation CSR Reviewer',
+    role: 'funder',
+    roleLabel: {
+      gu: 'રિલાયન્સ ફાઉન્ડેશન (Funder)',
+      hi: 'रिलायंस फाउंडेशन (Funder)',
+      en: 'Reliance Foundation (Funder)',
+    },
+    identifier: 'funder.csr@rf.mock',
+    badge: 'Executive Funder View',
+    description: 'Read-only CSR impact monitor: 375 MWh solar generated, 50%+ women, CO2 avoided.',
+  },
+  {
+    id: 'user_admin',
+    name: 'Urja Platform Administrator',
+    role: 'admin',
+    roleLabel: {
+      gu: 'સુપર એડમિન',
+      hi: 'सुपर एडमिन',
+      en: 'Super Admin',
+    },
+    identifier: 'admin@urjakaushal.org',
+    badge: 'System Admin',
+    description: 'User access control, question bank CRUD, certificate registry, audit logs.',
+  },
+];
+
