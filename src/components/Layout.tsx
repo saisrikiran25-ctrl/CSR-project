@@ -21,7 +21,7 @@ import {
   FileCheck2,
   Building2,
   BarChart3,
-  Sparkles,
+  Star,
 } from 'lucide-react';
 
 type NavItem = { to: string; label: string; icon: React.ComponentType<{ className?: string }> };
@@ -32,7 +32,7 @@ const consoles: NavItem[] = [
   { to: '/assessor', label: 'External Assessor', icon: FileCheck2 },
   { to: '/employer', label: 'Employer / Vendor', icon: Building2 },
   { to: '/pm', label: 'Project Manager & M&E', icon: BarChart3 },
-  { to: '/funder', label: 'Funder (Reliance CSR)', icon: Sparkles },
+  { to: '/funder', label: 'Funder (Reliance CSR)', icon: Star },
   { to: '/admin', label: 'Super Admin', icon: Shield },
 ];
 
@@ -80,7 +80,7 @@ export const Layout: React.FC = () => {
             </div>
 
             <div className="bg-white dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800">
-              <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider px-3 pt-2 pb-1">
+              <div className="text-xs font-semibold text-slate-500 px-3 pt-2 pb-1">
                 Role consoles
               </div>
               <nav className="space-y-0.5">
@@ -113,7 +113,7 @@ export const Layout: React.FC = () => {
               Turning clean energy into clean livelihoods, one village hub at a time.
             </span>
           </div>
-          <div className="text-[11px] space-y-0.5">
+          <div className="text-xs space-y-0.5">
             <p>A Reliance Foundation CSR initiative · proposal prototype, Team 5, IPM 2025-30.</p>
             <p>10 hubs · 6,000 beneficiaries · 50%+ women · 375 MWh/yr clean solar generation.</p>
           </div>

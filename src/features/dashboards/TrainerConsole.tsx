@@ -29,9 +29,9 @@ export const TrainerConsole: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
             Master Trainer Lab Console
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -56,9 +56,9 @@ export const TrainerConsole: React.FC = () => {
       </div>
 
       {/* Lab Slots & Daily Attendance */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <CheckSquare className="w-4 h-4 text-emerald-600" />
             <span>Today's Hands-on Lab Attendance & QR Verification</span>
           </h3>
@@ -70,14 +70,14 @@ export const TrainerConsole: React.FC = () => {
             <div key={l.id} className="py-3 flex items-center justify-between">
               <div>
                 <div className="font-bold text-slate-900 dark:text-white">{l.name}</div>
-                <div className="text-[11px] text-slate-500">
+                <div className="text-xs text-slate-500">
                   Cluster: {l.cluster} • Completed: <strong>{l.hours} / 600 Hours</strong>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <span
-                  className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
+                  className={`px-2 py-0.5 rounded text-xs font-semibold ${
                     l.status.includes('Dropout')
                       ? 'bg-rose-100 text-rose-800'
                       : l.status.includes('Ready')
@@ -108,8 +108,8 @@ export const TrainerConsole: React.FC = () => {
       </div>
 
       {/* Practical Lab Checklist Evaluation Rubric */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <Layers className="w-4 h-4 text-sun-500" />
           <span>Practical Task Checklist Scoring Rubric</span>
         </h3>

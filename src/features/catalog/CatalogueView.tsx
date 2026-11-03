@@ -4,7 +4,7 @@ import { db } from '../../lib/db';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { CourseThumb } from '../../components/CourseThumb';
-import { BookOpen, Clock, Award, Search, Sparkles } from 'lucide-react';
+import { BookOpen, Clock, Award, Search, Star } from 'lucide-react';
 
 const STREAMS = [
   { id: 'ALL', label: 'All' },
@@ -54,7 +54,7 @@ export const CatalogueView: React.FC = () => {
           to="/learn/course_solar_flagship_600h/les_1_1_ppe_intro"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-solar-600 hover:bg-solar-700 text-white font-semibold text-sm transition-colors self-start md:self-auto"
         >
-          <Sparkles className="w-4 h-4" />
+          <Star className="w-4 h-4" />
           Resume flagship lesson
         </Link>
       </div>
@@ -99,7 +99,7 @@ export const CatalogueView: React.FC = () => {
           <Link
             key={course.id}
             to={`/learn/${course.id}`}
-            className="bg-white rounded-xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all flex flex-col group"
+            className="bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:border-slate-300 transition-all flex flex-col group"
           >
             <div className="relative">
               <CourseThumb
@@ -110,12 +110,12 @@ export const CatalogueView: React.FC = () => {
               />
               <div className="absolute top-3 left-3 flex gap-1.5">
                 {course.isFlagship && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-400 text-slate-900">
+                  <span className="px-2 py-0.5 rounded text-xs font-bold bg-amber-400 text-slate-900">
                     FLAGSHIP
                   </span>
                 )}
                 {course.isWomenCentric && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-600 text-white">
+                  <span className="px-2 py-0.5 rounded text-xs font-bold bg-rose-600 text-white">
                     WOMEN SHG
                   </span>
                 )}
@@ -123,7 +123,7 @@ export const CatalogueView: React.FC = () => {
             </div>
 
             <div className="p-5 flex-1 flex flex-col">
-              <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
+              <div className="text-xs font-semibold text-slate-500 ">
                 Stream {course.stream} · {course.code}
               </div>
               <h3 className="text-base font-bold text-slate-900 mt-1 leading-snug line-clamp-2 group-hover:text-solar-700 transition-colors">

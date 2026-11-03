@@ -165,9 +165,9 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Top Integrity & Timer Bar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <span className="text-[11px] font-bold uppercase text-solar-600 bg-solar-50 px-2 py-0.5 rounded">
+          <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2 py-0.5 rounded">
             Question {currentIndex + 1} of {questions.length}
           </span>
           <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -177,7 +177,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
 
         <div className="flex items-center gap-3">
           {tabBlurWarnings > 0 && (
-            <div className="flex items-center gap-1 text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded-lg border border-rose-200">
+            <div className="flex items-center gap-1 text-xs font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded-lg border border-rose-200">
               <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
               <span>Tab switches: {tabBlurWarnings}</span>
             </div>
@@ -192,11 +192,11 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
 
       {/* Main Question Card */}
       {currentQ && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6">
           {/* Question Prompt with Audio Button */}
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-slate-400 ">
                 {currentQ.type.replace('_', ' ')} • {currentQ.points} Points
               </span>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed">
@@ -224,7 +224,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
                   key={opt.id}
                   className={`flex items-center gap-3.5 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                     answers[currentQ.id] === opt.id
-                      ? 'border-solar-600 bg-solar-50/80 dark:bg-solar-950/60 font-semibold shadow-sm'
+                      ? 'border-solar-600 bg-solar-50/80 dark:bg-solar-950/60 font-semibold '
                       : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
                   }`}
                 >
@@ -387,7 +387,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
                   }}
                   className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all ${
                     isRecording
-                      ? 'bg-rose-600 text-white animate-pulse'
+                      ? 'bg-rose-600 text-white '
                       : 'bg-solar-600 hover:bg-solar-700 text-white shadow'
                   }`}
                 >
@@ -427,7 +427,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
             ) : (
               <button
                 onClick={handleSubmit}
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg transition-all"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition-all"
               >
                 <span>Submit & View Results</span>
                 <CheckCircle className="w-4 h-4" />

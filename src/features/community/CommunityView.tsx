@@ -68,9 +68,9 @@ export const CommunityView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
             Village Peer & Mentor Layer
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -83,8 +83,8 @@ export const CommunityView: React.FC = () => {
       </div>
 
       {/* Post New Question Box */}
-      <form onSubmit={handlePost} className="bg-white dark:bg-slate-900 rounded-3xl p-5 shadow-sm border border-slate-200 dark:border-slate-800 space-y-3">
-        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+      <form onSubmit={handlePost} className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 space-y-3">
+        <h3 className="text-xs font-bold text-slate-500">
           Ask a Question or Share Hub Experience:
         </h3>
         <textarea
@@ -106,7 +106,7 @@ export const CommunityView: React.FC = () => {
               }, 2500);
             }}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              isRecording ? 'bg-rose-600 text-white animate-pulse' : 'bg-sun-100 text-amber-900'
+              isRecording ? 'bg-rose-600 text-white ' : 'bg-sun-100 text-amber-900'
             }`}
           >
             {isRecording ? <MicOff className="w-3.5 h-3.5" /> : <Mic className="w-3.5 h-3.5" />}
@@ -128,17 +128,17 @@ export const CommunityView: React.FC = () => {
         {threads.map(t => (
           <div
             key={t.id}
-            className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-3"
+            className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-3"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] font-bold uppercase bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600">
+                <span className="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600">
                   {t.category}
                 </span>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white mt-1">
                   {t.topic}
                 </h3>
-                <div className="text-[11px] text-slate-400 mt-0.5">
+                <div className="text-xs text-slate-400 mt-0.5">
                   Asked by <strong>{t.author}</strong> ({t.cluster})
                 </div>
               </div>

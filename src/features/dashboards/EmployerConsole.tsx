@@ -43,9 +43,9 @@ export const EmployerConsole: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded">
             Reliance Giga Complex & Vendor Ecosystem
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -66,10 +66,10 @@ export const EmployerConsole: React.FC = () => {
       </div>
 
       {/* Consent-Based Candidate Talent Pool */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Users className="w-4 h-4 text-solar-600" />
               <span>Certified Job-Ready Candidates (Consent Granted)</span>
             </h3>
@@ -85,7 +85,7 @@ export const EmployerConsole: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-slate-900 dark:text-white text-sm">{c.name}</span>
-                  <span className="px-2 py-0.5 rounded bg-sun-100 text-amber-900 text-[10px] font-bold">
+                  <span className="px-2 py-0.5 rounded bg-sun-100 text-amber-900 text-xs font-bold">
                     {c.cluster} Cluster
                   </span>
                 </div>
@@ -94,7 +94,7 @@ export const EmployerConsole: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {c.skills.map(s => (
-                    <span key={s} className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-600 dark:text-slate-300">
+                    <span key={s} className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-xs text-slate-600 dark:text-slate-300">
                       {s}
                     </span>
                   ))}
@@ -123,8 +123,8 @@ export const EmployerConsole: React.FC = () => {
       </div>
 
       {/* Active Job Postings */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <Briefcase className="w-4 h-4 text-emerald-600" />
           <span>Active Postings & Vendor Openings</span>
         </h3>
@@ -139,7 +139,7 @@ export const EmployerConsole: React.FC = () => {
                 </p>
               </div>
 
-              <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px] uppercase">
+              <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-bold text-xs ">
                 Active Opening
               </span>
             </div>

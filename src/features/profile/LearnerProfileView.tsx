@@ -13,7 +13,7 @@ import {
   CheckCircle,
   Eye,
   EyeOff,
-  Sparkles,
+  Star,
   Lock,
   ChevronRight,
   Share2,
@@ -64,17 +64,16 @@ export const LearnerProfileView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header Profile Card */}
-      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-64 h-64 bg-sun-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
 
         <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
           {/* Avatar with Job-Ready Badge */}
           <div className="relative">
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-sun-400 to-amber-500 p-1 shadow-lg flex items-center justify-center text-3xl font-extrabold text-slate-950">
+            <div className="w-24 h-24 rounded-2xl bg-amber-500 p-1 flex items-center justify-center text-3xl font-extrabold text-slate-950">
               {profile.name.charAt(0)}
             </div>
             {profile.isJobReady && (
-              <span className="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full border-2 border-white shadow flex items-center gap-1">
+              <span className="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 text-xs font-extrabold px-2 py-0.5 rounded-full border-2 border-white shadow flex items-center gap-1">
                 <CheckCircle className="w-3 h-3 text-slate-950" />
                 JOB READY
               </span>
@@ -85,7 +84,7 @@ export const LearnerProfileView: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <h1 className="text-xl sm:text-2xl font-bold">{profile.name}</h1>
               {profile.shgMember && (
-                <span className="text-[10px] font-bold bg-sun-500 text-slate-950 px-2.5 py-0.5 rounded-full shadow-sm">
+                <span className="text-xs font-bold bg-sun-500 text-slate-950 px-2.5 py-0.5 rounded-full ">
                   SHG: {profile.shgName || 'Radhe Krishna Mandal'}
                 </span>
               )}
@@ -96,20 +95,20 @@ export const LearnerProfileView: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-2">
-              <span className="text-[11px] bg-white/10 px-2.5 py-1 rounded-lg">
+              <span className="text-xs bg-white/10 px-2.5 py-1 rounded-lg">
                 Education: {profile.education.replace('_', ' ').toUpperCase()}
               </span>
-              <span className="text-[11px] bg-white/10 px-2.5 py-1 rounded-lg">
+              <span className="text-xs bg-white/10 px-2.5 py-1 rounded-lg">
                 Batch: {profile.preferredTiming.replace('_', ' ')}
               </span>
-              <span className="text-[11px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
+              <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
                 Stipend Eligible: Yes (₹1,500/mo)
               </span>
             </div>
           </div>
 
           {/* 600 Hours Progress Ring */}
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 flex flex-col items-center justify-center text-center min-w-[130px] border border-white/10">
+          <div className="bg-white/10 rounded-2xl p-4 flex flex-col items-center justify-center text-center min-w-[130px] border border-white/10">
             <div className="relative w-16 h-16 flex items-center justify-center">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                 <path
@@ -131,7 +130,7 @@ export const LearnerProfileView: React.FC = () => {
               </svg>
               <span className="absolute text-xs font-bold text-sun-300">{hoursPercent}%</span>
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 mt-1">
+            <span className="text-xs font-bold text-slate-300 mt-1">
               {profile.completedHours} / {profile.targetHours} Hours
             </span>
           </div>
@@ -168,8 +167,8 @@ export const LearnerProfileView: React.FC = () => {
       {activeTab === 'passport' && (
         <div className="space-y-6">
           {/* Earned Badges */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-800">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800">
+            <h3 className="text-xs font-bold text-slate-400 mb-3">
               Earned Competency Badges
             </h3>
             <div className="flex flex-wrap gap-2.5">
@@ -178,7 +177,7 @@ export const LearnerProfileView: React.FC = () => {
                   key={b}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sun-50 dark:bg-slate-800 text-amber-900 dark:text-sun-300 border border-sun-200 dark:border-slate-700 text-xs font-bold"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-sun-500" />
+                  <Star className="w-3.5 h-3.5 text-sun-500" />
                   <span>{b}</span>
                 </span>
               ))}
@@ -186,8 +185,8 @@ export const LearnerProfileView: React.FC = () => {
           </div>
 
           {/* Verifiable Certificates List */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-800">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800">
+            <h3 className="text-xs font-bold text-slate-400 mb-3">
               Verifiable Skill Certificates
             </h3>
             <div className="space-y-3">
@@ -224,8 +223,8 @@ export const LearnerProfileView: React.FC = () => {
           </div>
 
           {/* Skills Matrix */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-800">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800">
+            <h3 className="text-xs font-bold text-slate-400 mb-3">
               Assessed Solar Competencies
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -253,7 +252,7 @@ export const LearnerProfileView: React.FC = () => {
       {/* TAB 2: CAREER PREFERENCES & RESUME BUILDER */}
       {activeTab === 'career' && (
         <div className="space-y-6">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Work & Livelihood Preferences
             </h3>
@@ -309,7 +308,7 @@ export const LearnerProfileView: React.FC = () => {
 
       {/* TAB 3: 6-MONTH EARNINGS TRACKER (STREAM D OUTCOME KPI) */}
       {activeTab === 'outcomes' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-5">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 space-y-5">
           <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               6-Month Livelihood & Income Tracer Survey
@@ -378,14 +377,14 @@ export const LearnerProfileView: React.FC = () => {
 
             <button
               type="submit"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all"
             >
               <CheckCircle className="w-4 h-4" />
               <span>Submit 6-Month Tracer Update</span>
             </button>
 
             {outcomeSubmitted && (
-              <div className="p-3 bg-emerald-50 text-emerald-900 border border-emerald-300 rounded-xl text-xs font-semibold flex items-center gap-2 animate-bounce">
+              <div className="p-3 bg-emerald-50 text-emerald-900 border border-emerald-300 rounded-xl text-xs font-semibold flex items-center gap-2 ">
                 <CheckCircle className="w-4 h-4 text-emerald-600" />
                 <span>Tracer record recorded! Programme KPI updated to 74% placed.</span>
               </div>
@@ -396,7 +395,7 @@ export const LearnerProfileView: React.FC = () => {
 
       {/* TAB 4: PRIVACY & SHARED DEVICE PIN */}
       {activeTab === 'privacy' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6 text-xs">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 space-y-6 text-xs">
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Privacy & Consent Controls (Private by Default)
@@ -433,7 +432,7 @@ export const LearnerProfileView: React.FC = () => {
                 type="password"
                 maxLength={4}
                 defaultValue="1234"
-                className="w-24 p-2 text-center text-lg font-mono tracking-widest rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent font-bold"
+                className="w-24 p-2 text-center text-lg font-mono rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent font-bold"
               />
               <button
                 onClick={() => alert('PIN updated successfully!')}
@@ -448,7 +447,7 @@ export const LearnerProfileView: React.FC = () => {
 
       {/* Certificate Modal */}
       {showCertificateModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
             <button
               onClick={() => setShowCertificateModal(null)}

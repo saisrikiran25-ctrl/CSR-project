@@ -52,7 +52,7 @@ export const LessonPlayerView: React.FC = () => {
         </Link>
 
         {isCompleted && (
-          <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 animate-bounce">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 ">
             <CheckCircle className="w-4 h-4 text-emerald-600" />
             <span>Lesson Completed (+0.5h Logged)</span>
           </div>
@@ -63,7 +63,7 @@ export const LessonPlayerView: React.FC = () => {
       <TriModalPlayer lesson={lesson} onComplete={handleLessonComplete} />
 
       {/* Action Footer for Next Steps */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <h4 className="text-sm font-bold text-slate-900 dark:text-white">
             Ready to test your knowledge?
@@ -75,7 +75,7 @@ export const LessonPlayerView: React.FC = () => {
 
         <Link
           to="/tests"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-md transition-all active:scale-95"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95"
         >
           <Award className="w-4 h-4 text-slate-950" />
           <span>Take Module Assessment →</span>

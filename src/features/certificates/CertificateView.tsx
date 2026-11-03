@@ -63,7 +63,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Top Action Toolbar (hidden during print) */}
       {!standaloneVerifyMode && (
-        <div className="print:hidden bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div className="print:hidden bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5 text-amber-500" />
             <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
@@ -74,7 +74,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold shadow-sm transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / Save PDF</span>
@@ -82,7 +82,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
 
             <button
               onClick={handleShareWhatsApp}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span>{t('certificate.share_whatsapp')}</span>
@@ -93,7 +93,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
 
       {/* Standalone Verification Banner */}
       {standaloneVerifyMode && (
-        <div className="bg-emerald-50 border border-emerald-300 p-4 rounded-2xl text-emerald-950 flex items-center justify-between shadow-sm">
+        <div className="bg-emerald-50 border border-emerald-300 p-4 rounded-2xl text-emerald-950 flex items-center justify-between ">
           <div className="flex items-center gap-2.5">
             <ShieldCheck className="w-6 h-6 text-emerald-600 flex-shrink-0" />
             <div>
@@ -103,17 +103,17 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
               </div>
             </div>
           </div>
-          <span className="text-xs font-bold bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full uppercase">
+          <span className="text-xs font-bold bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full ">
             Status: {certificate.status}
           </span>
         </div>
       )}
 
       {/* A4 LANDSCAPE CERTIFICATE CANVAS CONTAINER */}
-      <div className="relative bg-gradient-to-br from-cream-50 via-white to-amber-50/40 p-8 sm:p-12 rounded-3xl shadow-lg border-8 border-solar-700/80 text-slate-900 overflow-hidden font-serif">
+      <div className="relative bg-white p-8 sm:p-12 rounded-3xl border-8 border-solar-700/80 text-slate-900 overflow-hidden font-serif">
         {/* Visible Guardrail Watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.06] rotate-[-25deg]">
-          <span className="text-5xl sm:text-7xl font-extrabold text-slate-900 uppercase tracking-widest text-center">
+          <span className="text-5xl sm:text-7xl font-extrabold text-slate-900 text-center">
             {t('certificate.sample_watermark')}
           </span>
         </div>
@@ -132,21 +132,21 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
               URJA KAUSHAL • ઊર્જા કૌશલ્ય
             </h1>
           </div>
-          <p className="text-xs font-sans text-slate-600 uppercase tracking-widest font-semibold">
+          <p className="text-xs font-sans text-slate-600 font-semibold">
             Solar Livelihoods Skill Development Platform • Jamnagar, Gujarat
           </p>
-          <p className="text-[11px] font-sans text-amber-700 font-medium">
+          <p className="text-xs font-sans text-amber-700 font-medium">
             Supported by Reliance Foundation (CSR Proposal Prototype)
           </p>
         </div>
 
         {/* Certificate Body */}
         <div className="my-8 text-center space-y-4">
-          <p className="text-xs uppercase tracking-widest text-slate-500 font-sans font-bold">
+          <p className="text-xs text-slate-500 font-sans font-bold">
             This is to certify that
           </p>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-solar-900 font-sans tracking-wide">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-solar-900 font-sans ">
             {certificate.learnerName}
           </h2>
 
@@ -162,15 +162,15 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
 
           {/* Scores Matrix */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-3 font-sans text-xs">
-            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm">
+            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl ">
               <span className="text-slate-500">Theory Score: </span>
               <strong className="text-solar-700">{certificate.theoryScore}%</strong>
             </div>
-            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm">
+            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl ">
               <span className="text-slate-500">Practical Lab: </span>
               <strong className="text-emerald-700">{certificate.practicalScore}% (Competent)</strong>
             </div>
-            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm">
+            <div className="bg-white/80 border border-slate-200 px-3 py-1.5 rounded-xl ">
               <span className="text-slate-500">Hub Attendance: </span>
               <strong className="text-slate-800">{certificate.attendancePercentage}%</strong>
             </div>
@@ -185,7 +185,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
               Dr. R. K. Joshi (Sign)
             </div>
             <div className="text-xs font-bold text-slate-900 mt-1">{certificate.signatories[0].name}</div>
-            <div className="text-[10px] text-slate-500">{certificate.signatories[0].title}</div>
+            <div className="text-xs text-slate-500">{certificate.signatories[0].title}</div>
           </div>
 
           {/* Center QR Code */}
@@ -193,7 +193,7 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
             <div className="p-1 bg-white rounded-xl shadow border border-slate-200">
               <canvas ref={qrCanvasRef} className="w-20 h-20" />
             </div>
-            <span className="text-[9px] font-mono text-slate-500 mt-1">ID: {certificate.id}</span>
+            <span className="text-xs font-mono text-slate-500 mt-1">ID: {certificate.id}</span>
           </div>
 
           {/* Signatory 2 */}
@@ -202,8 +202,8 @@ export const CertificateView: React.FC<CertificateViewProps> = ({
               Sneha Sharma (Sign)
             </div>
             <div className="text-xs font-bold text-slate-900 mt-1">{certificate.signatories[1].name}</div>
-            <div className="text-[10px] text-slate-500">{certificate.signatories[1].title}</div>
-            <div className="text-[10px] text-slate-400 mt-0.5">Date: {certificate.issueDate}</div>
+            <div className="text-xs text-slate-500">{certificate.signatories[1].title}</div>
+            <div className="text-xs text-slate-400 mt-0.5">Date: {certificate.issueDate}</div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import {
   UserCheck,
   CheckCircle,
   Phone,
-  Sparkles,
+  Star,
   Shield,
   ArrowRight,
   ArrowLeft,
@@ -65,9 +65,9 @@ export const RegisterView: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto py-6 space-y-6">
       {/* Progress Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div>
-          <span className="text-[11px] font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
             Step {step} of 3
           </span>
           <h2 className="text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -89,7 +89,7 @@ export const RegisterView: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800">
         {/* STEP 1: MOBILE OTP */}
         {step === 1 && (
           <div className="space-y-4">
@@ -125,7 +125,7 @@ export const RegisterView: React.FC = () => {
                 value={otp}
                 onChange={e => setOtp(e.target.value)}
                 placeholder="123456"
-                className="w-full text-center text-xl font-bold font-mono tracking-widest p-3 rounded-2xl border-2 border-sun-400 bg-amber-50/40 dark:bg-slate-800"
+                className="w-full text-center text-xl font-bold font-mono p-3 rounded-2xl border-2 border-sun-400 bg-amber-50/40 dark:bg-slate-800"
               />
             </div>
 
@@ -139,7 +139,7 @@ export const RegisterView: React.FC = () => {
                   alert('Please enter 123456 in demo mode');
                 }
               }}
-              className="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-lg transition-all"
+              className="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-all"
             >
               Verify OTP & Proceed to Details →
             </button>
@@ -352,7 +352,7 @@ export const RegisterView: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-lg"
+                className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold "
               >
                 Complete Registration & Take Readiness Quiz →
               </button>

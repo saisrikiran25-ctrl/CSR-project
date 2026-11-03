@@ -37,9 +37,9 @@ export const CoordinatorConsole: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
             Cluster Mobiliser & Outreach
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -86,7 +86,7 @@ export const CoordinatorConsole: React.FC = () => {
 
       {/* DROPOUT INTERVENTION QUEUE */}
       {activeTab === 'dropout' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
           <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Immediate Follow-up Queue (Dropout Risk Mitigation)
@@ -102,14 +102,14 @@ export const CoordinatorConsole: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-slate-900 dark:text-white text-sm">{item.name}</span>
-                    <span className="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-[10px] font-bold">
+                    <span className="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-xs font-bold">
                       {item.missedDays} Days Missed
                     </span>
                   </div>
                   <div className="text-slate-500">
                     Reported obstacle: <strong>{item.reason}</strong>
                   </div>
-                  <div className="text-[11px] text-slate-400">
+                  <div className="text-xs text-slate-400">
                     Phone (masked): {item.phone} • Stipend status: {item.stipendStatus}
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export const CoordinatorConsole: React.FC = () => {
 
       {/* SHG LIAISON TAB */}
       {activeTab === 'shg' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
           <h3 className="text-sm font-bold text-slate-900 dark:text-white">
             Women SHG Solar Dryer & Margin Money Follow-up
           </h3>
@@ -157,7 +157,7 @@ export const CoordinatorConsole: React.FC = () => {
               <div className="font-bold text-amber-900">Suryodaya Farmer Women Group</div>
               <div className="text-slate-600">Application submitted for 2 Solar Agri-Dryers • Margin Grant: ₹2,10,000</div>
             </div>
-            <span className="px-2.5 py-1 rounded bg-sun-200 text-amber-900 font-bold text-[10px]">
+            <span className="px-2.5 py-1 rounded bg-sun-200 text-amber-900 font-bold text-xs">
               DDO Verification Pending
             </span>
           </div>

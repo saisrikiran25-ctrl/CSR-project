@@ -65,9 +65,9 @@ export const PMDashboard: React.FC = () => {
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
       {/* Header Bar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded">
             Urja Kaushal PMU • Management Information System (MIS)
           </span>
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
@@ -96,8 +96,8 @@ export const PMDashboard: React.FC = () => {
       </div>
 
       {/* 36-Month Milestone Roadmap */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
           36-Month Strategic Implementation Timeline
         </h3>
 
@@ -117,12 +117,12 @@ export const PMDashboard: React.FC = () => {
                   : 'border-slate-200 dark:border-slate-800 text-slate-400 bg-slate-50/50'
               }`}
             >
-              <div className="flex items-center justify-between text-[11px] mb-1">
+              <div className="flex items-center justify-between text-xs mb-1">
                 <span className="font-bold">{item.months}</span>
                 {item.active && <CheckCircle2 className="w-3.5 h-3.5 text-solar-600" />}
               </div>
               <div className="font-bold text-xs">{item.phase}</div>
-              <div className="text-[10px] text-slate-500 mt-1">{item.desc}</div>
+              <div className="text-xs text-slate-500 mt-1">{item.desc}</div>
             </div>
           ))}
         </div>
@@ -131,9 +131,9 @@ export const PMDashboard: React.FC = () => {
       {/* Cohort Funnel & Training Progress */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Cohort Funnel */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
               Beneficiary Funnel (Target: 6,000)
             </h3>
             <span className="text-xs text-emerald-600 font-bold">Current: Month 14</span>
@@ -161,9 +161,9 @@ export const PMDashboard: React.FC = () => {
         </div>
 
         {/* Budget Utilisation Tracker */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
               ₹9.5 Cr CSR Budget Utilisation
             </h3>
             <span className="text-xs font-bold text-solar-600">
@@ -176,11 +176,11 @@ export const PMDashboard: React.FC = () => {
               <div key={b.category} className="py-2.5 flex items-center justify-between">
                 <div>
                   <div className="font-semibold text-slate-800 dark:text-slate-200">{b.category}</div>
-                  <div className="text-[10px] text-slate-400">Planned: ₹{b.plannedCr.toFixed(1)} Cr</div>
+                  <div className="text-xs text-slate-400">Planned: ₹{b.plannedCr.toFixed(1)} Cr</div>
                 </div>
                 <div className="text-right">
                   <div className="font-bold font-mono text-slate-900 dark:text-white">₹{b.utilizedCr.toFixed(2)} Cr</div>
-                  <span className="text-[10px] text-emerald-600 font-semibold">{b.status}</span>
+                  <span className="text-xs text-emerald-600 font-semibold">{b.status}</span>
                 </div>
               </div>
             ))}
@@ -189,8 +189,8 @@ export const PMDashboard: React.FC = () => {
       </div>
 
       {/* Risk Register (Proposal Aligned) */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <AlertTriangle className="w-4 h-4 text-amber-500" />
           <span>Active Programme Risk Mitigation Register</span>
         </h3>
@@ -198,7 +198,7 @@ export const PMDashboard: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold uppercase text-[10px]">
+              <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold text-xs">
                 <th className="py-2.5">Key Identified Risk</th>
                 <th className="py-2.5">Severity</th>
                 <th className="py-2.5">Active Mitigation Action</th>
@@ -211,7 +211,7 @@ export const PMDashboard: React.FC = () => {
                   <td className="py-3 font-semibold text-slate-800 dark:text-slate-200">{r.risk}</td>
                   <td className="py-3">
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                      className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                         r.severity === 'High'
                           ? 'bg-rose-100 text-rose-800'
                           : r.severity === 'Medium'

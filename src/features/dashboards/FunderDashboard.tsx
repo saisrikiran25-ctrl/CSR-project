@@ -27,9 +27,9 @@ export const FunderDashboard: React.FC = () => {
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
       {/* Header Banner */}
-      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-sun-400 bg-sun-500/10 px-3 py-1 rounded-full border border-sun-400/30">
+          <span className="text-xs font-bold text-sun-400 bg-sun-500/10 px-3 py-1 rounded-full border border-sun-400/30">
             Reliance Foundation CSR & Sustainability Oversight
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold mt-2 tracking-tight">
@@ -42,7 +42,7 @@ export const FunderDashboard: React.FC = () => {
 
         <button
           onClick={() => alert('Official Reliance CSR Impact Report exported as PDF (Simulated)!')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-lg transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all"
         >
           <Download className="w-4 h-4 text-slate-950" />
           <span>Download CSR Report (PDF)</span>
@@ -51,7 +51,7 @@ export const FunderDashboard: React.FC = () => {
 
       {/* 4 Core Headline Outcome KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 ">
           <div className="flex items-center justify-between text-slate-400 text-xs font-bold">
             <span>HUBS COMMISSIONED</span>
             <Building className="w-4 h-4 text-solar-600" />
@@ -59,10 +59,10 @@ export const FunderDashboard: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
             7 / 10 <span className="text-xs font-medium text-emerald-600">(Month 14)</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">Target: All 10 live by Month 18</div>
+          <div className="text-xs text-slate-500 mt-1">Target: All 10 live by Month 18</div>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 ">
           <div className="flex items-center justify-between text-slate-400 text-xs font-bold">
             <span>WOMEN PARTICIPATION</span>
             <Users className="w-4 h-4 text-sun-500" />
@@ -70,10 +70,10 @@ export const FunderDashboard: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
             {avgWomenPct}% <span className="text-xs font-medium text-emerald-600">(&gt;50% Goal)</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">{totalEnrolled} total beneficiaries enrolled</div>
+          <div className="text-xs text-slate-500 mt-1">{totalEnrolled} total beneficiaries enrolled</div>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 ">
           <div className="flex items-center justify-between text-slate-400 text-xs font-bold">
             <span>CLEAN ENERGY GENERATED</span>
             <Sun className="w-4 h-4 text-amber-500" />
@@ -81,10 +81,10 @@ export const FunderDashboard: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
             {totalGenMWh} <span className="text-xs font-normal">MWh</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">250 kW total rooftop capacity</div>
+          <div className="text-xs text-slate-500 mt-1">250 kW total rooftop capacity</div>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 ">
           <div className="flex items-center justify-between text-slate-400 text-xs font-bold">
             <span>CO₂ EMISSIONS AVOIDED</span>
             <Leaf className="w-4 h-4 text-emerald-600" />
@@ -92,12 +92,12 @@ export const FunderDashboard: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
             {totalCO2Avoided} <span className="text-xs font-normal">Tonnes</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">Exact factor: 0.727 kg CO₂/kWh</div>
+          <div className="text-xs text-slate-500 mt-1">Exact factor: 0.727 kg CO₂/kWh</div>
         </div>
       </div>
 
       {/* Jamnagar Solar Hubs Map & Selector */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -205,7 +205,7 @@ export const FunderDashboard: React.FC = () => {
         <div className="bg-cream-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-700 pb-3">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
+              <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
                 Telemetry Station
               </span>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -213,7 +213,7 @@ export const FunderDashboard: React.FC = () => {
               </h3>
             </div>
             <span
-              className={`text-xs font-bold px-3 py-1 rounded-full uppercase ${
+              className={`text-xs font-bold px-3 py-1 rounded-full ${
                 selectedHub.status === 'commissioned'
                   ? 'bg-emerald-100 text-emerald-900'
                   : 'bg-amber-100 text-amber-900'

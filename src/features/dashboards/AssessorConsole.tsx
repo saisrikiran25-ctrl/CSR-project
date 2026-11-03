@@ -52,9 +52,9 @@ export const AssessorConsole: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded">
             External Third-Party Evaluation Panel
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -86,8 +86,8 @@ export const AssessorConsole: React.FC = () => {
       </div>
 
       {/* Candidate Queue Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <FileCheck2 className="w-4 h-4 text-solar-600" />
           <span>Candidates Pending Third-Party Result Sign-off</span>
         </h3>
@@ -102,7 +102,7 @@ export const AssessorConsole: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-slate-900 dark:text-white text-sm">{c.name}</span>
-                    <span className="text-slate-400 font-mono text-[11px]">({c.cluster})</span>
+                    <span className="text-slate-400 font-mono text-xs">({c.cluster})</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                     <span>Theory: <strong className={c.theoryScore >= 60 ? 'text-emerald-600' : 'text-rose-600'}>{c.theoryScore}%</strong></span>

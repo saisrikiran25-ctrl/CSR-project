@@ -10,7 +10,7 @@ import {
   CheckCircle,
   AlertCircle,
   RotateCcw,
-  Sparkles,
+  Star,
   TrendingUp,
   FileCheck2,
 } from 'lucide-react';
@@ -97,7 +97,7 @@ export const AssessmentHubView: React.FC = () => {
         />
       ) : examAttempt ? (
         /* SCORE REPORT VIEW */
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6">
           <div className="text-center space-y-2 border-b border-slate-200 dark:border-slate-800 pb-6">
             <div
               className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center ${
@@ -121,21 +121,21 @@ export const AssessmentHubView: React.FC = () => {
 
             <div className="flex items-center justify-center gap-6 pt-3">
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-400">Your Score</span>
+                <span className="text-xs font-bold text-slate-400">Your Score</span>
                 <div className="text-3xl font-extrabold text-solar-700">
                   {examAttempt.percentage}%
                 </div>
               </div>
               <div className="h-8 w-px bg-slate-200" />
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-400">Total Points</span>
+                <span className="text-xs font-bold text-slate-400">Total Points</span>
                 <div className="text-3xl font-extrabold text-slate-900 dark:text-white">
                   {examAttempt.score} / {examAttempt.maxScore}
                 </div>
               </div>
               <div className="h-8 w-px bg-slate-200" />
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-400">Pass Mark</span>
+                <span className="text-xs font-bold text-slate-400">Pass Mark</span>
                 <div className="text-3xl font-extrabold text-emerald-600">60%</div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export const AssessmentHubView: React.FC = () => {
 
           {/* Competency Strengths & Weaknesses Breakdown */}
           <div className="space-y-3 text-xs">
-            <h4 className="font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h4 className="font-bold text-slate-900 dark:text-white ">
               Assessed Skill Performance Breakdown
             </h4>
 
@@ -165,8 +165,8 @@ export const AssessmentHubView: React.FC = () => {
 
           {/* If Passed Final Flagship, Unlock Sample Certificate */}
           {examAttempt.passed && (
-            <div className="p-5 bg-gradient-to-r from-amber-50 to-sun-50 dark:bg-slate-800 rounded-2xl border border-sun-300 text-center space-y-3">
-              <Sparkles className="w-6 h-6 text-sun-500 mx-auto" />
+            <div className="p-5 bg-amber-50 dark:bg-slate-800 rounded-2xl border border-sun-300 text-center space-y-3">
+              <Star className="w-6 h-6 text-sun-500 mx-auto" />
               <h3 className="text-base font-bold text-amber-950 dark:text-sun-300">
                 Official Verifiable Certificate Unlocked!
               </h3>
@@ -194,9 +194,9 @@ export const AssessmentHubView: React.FC = () => {
         /* ASSESSMENT HUB DIRECTORY */
         <>
           {/* Header */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
+              <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
                 Assessment & Certification Hub
               </span>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
@@ -213,15 +213,15 @@ export const AssessmentHubView: React.FC = () => {
             {availableAssessments.map(exam => (
               <div
                 key={exam.id}
-                className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-800 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-6 hover:border-slate-300 border border-slate-200 dark:border-slate-800 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
                 <div className="space-y-1.5 max-w-xl">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 uppercase">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 ">
                       {exam.type.replace('_', ' ')}
                     </span>
                     {exam.isFinalCertificateExam && (
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500 text-slate-950">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-slate-950">
                         CERTIFICATE ELIGIBLE
                       </span>
                     )}
@@ -250,7 +250,7 @@ export const AssessmentHubView: React.FC = () => {
 
                 <button
                   onClick={() => setActiveExam(exam)}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-md transition-all active:scale-95 whitespace-nowrap"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95 whitespace-nowrap"
                 >
                   <Award className="w-4 h-4" />
                   <span>Start Assessment</span>

@@ -125,11 +125,11 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
       : lesson.manifest.sizeKB.video360;
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800">
+    <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800">
       {/* Player Header & Mode Switcher */}
       <div className="bg-slate-900 text-white p-4 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
         <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-sun-400 bg-sun-500/10 px-2.5 py-0.5 rounded-full border border-sun-400/20">
+          <span className="text-xs font-bold text-sun-400 bg-sun-500/10 px-2.5 py-0.5 rounded-full border border-sun-400/20">
             {lesson.order}. Lesson • {lesson.durationMinutes} mins
           </span>
           <h2 className="text-base sm:text-lg font-bold text-white mt-1">
@@ -143,7 +143,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
             onClick={() => setMode('audio')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
               mode === 'audio'
-                ? 'bg-solar-600 text-white shadow-md'
+                ? 'bg-solar-600 text-white '
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -155,7 +155,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
             onClick={() => setMode('video')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
               mode === 'video'
-                ? 'bg-solar-600 text-white shadow-md'
+                ? 'bg-solar-600 text-white '
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -167,7 +167,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
             onClick={() => setMode('av')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
               mode === 'av'
-                ? 'bg-sun-500 text-slate-950 font-bold shadow-md'
+                ? 'bg-sun-500 text-slate-950 font-bold '
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -182,10 +182,10 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
         {/* MODE 1: AUDIO-ONLY PODCAST PLAYER */}
         {mode === 'audio' && (
           <div className="w-full max-w-lg text-center space-y-6 py-8">
-            <div className="relative mx-auto w-36 h-36 rounded-full bg-gradient-to-tr from-solar-600 to-sun-400 p-1 flex items-center justify-center shadow-lg">
+            <div className="relative mx-auto w-36 h-36 rounded-full bg-solar-600 p-1 flex items-center justify-center ">
               <div
                 className={`w-full h-full rounded-full bg-slate-900 flex items-center justify-center ${
-                  isPlaying ? 'animate-pulse' : ''
+                  isPlaying ? '' : ''
                 }`}
               >
                 <Volume2 className="w-16 h-16 text-sun-400" />
@@ -193,7 +193,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
             </div>
 
             <div>
-              <span className="text-xs text-sun-300 font-semibold tracking-wide">
+              <span className="text-xs text-sun-300 font-semibold ">
                 AUDIO PODCAST • LOW DATA USAGE
               </span>
               <h3 className="text-lg font-bold text-white mt-1">
@@ -210,7 +210,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
                 <button
                   key={idx}
                   onClick={() => setCurrentTime(cp.timeSec)}
-                  className={`text-[11px] px-2.5 py-1 rounded-full border transition-all ${
+                  className={`text-xs px-2.5 py-1 rounded-full border transition-all ${
                     currentTime >= cp.timeSec
                       ? 'bg-solar-600 text-white border-solar-400'
                       : 'bg-slate-800 text-slate-400 border-slate-700'
@@ -225,7 +225,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
         {/* MODE 2: ADAPTIVE VIDEO EXPLORER */}
         {mode === 'video' && (
-          <div className="w-full max-w-3xl aspect-video bg-slate-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-slate-800 shadow-lg">
+          <div className="w-full max-w-3xl aspect-video bg-slate-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-slate-800 ">
             {/* Simulated Animated Video Canvas */}
             <div className="absolute inset-0 flex items-center justify-center bg-ink-900">
               <svg className="w-full h-full opacity-80" viewBox="0 0 600 350">
@@ -237,7 +237,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
                 </defs>
                 <rect width="600" height="350" fill="url(#skyGrad)" />
                 {/* Sun with pulsing ray circles */}
-                <circle cx="500" cy="70" r="38" fill="#F59E0B" className="animate-pulse" />
+                <circle cx="500" cy="70" r="38" fill="#F59E0B" className="" />
                 <circle cx="500" cy="70" r="54" fill="none" stroke="#FDE68A" strokeWidth="2" strokeDasharray="6 4" />
                 
                 {/* Rooftop with Solar Array */}
@@ -267,7 +267,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
             {/* Video Quality Badge */}
             <div className="relative z-10 p-3 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
-              <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/30 px-2 py-0.5 rounded">
+              <span className="text-xs font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/30 px-2 py-0.5 rounded">
                 SIMULATED VIDEO STREAM
               </span>
               <div className="flex items-center gap-1.5 text-xs text-white">
@@ -276,7 +276,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
                   <button
                     key={q}
                     onClick={() => setQuality(q)}
-                    className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all ${
+                    className={`px-2 py-0.5 rounded text-xs font-bold transition-all ${
                       quality === q
                         ? 'bg-sun-500 text-slate-900'
                         : 'bg-black/40 text-slate-300 hover:bg-black/60'
@@ -290,7 +290,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
             {/* Bottom Caption Overlay */}
             <div className="relative z-10 p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-center">
-              <div className="inline-block bg-black/80 text-sun-300 text-xs sm:text-sm font-medium px-4 py-1.5 rounded-xl border border-sun-400/20 shadow-lg">
+              <div className="inline-block bg-black/80 text-sun-300 text-xs sm:text-sm font-medium px-4 py-1.5 rounded-xl border border-sun-400/20 ">
                 "{lesson.transcript[lang]?.slice(0, 110)}..."
               </div>
             </div>
@@ -299,14 +299,14 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
         {/* MODE 3: AUDIO-VISUAL (SYNCHRONIZED INTERACTIVE SIMULATOR) */}
         {mode === 'av' && (
-          <div className="w-full max-w-3xl bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 text-white shadow-lg">
+          <div className="w-full max-w-3xl bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 text-white ">
             {/* Interactive Tab Switcher inside AV Mode */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
               <div className="flex items-center gap-2 text-xs font-bold text-sun-400">
                 <Zap className="w-4 h-4 text-sun-400" />
                 <span>INTERACTIVE DIAGRAM & LAB SIMULATOR</span>
               </div>
-              <div className="text-[11px] text-slate-400">
+              <div className="text-xs text-slate-400">
                 Slide {activeSlide + 1} of {lesson.manifest.cuePoints?.length || 4}
               </div>
             </div>
@@ -331,11 +331,11 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
                         speechService.speak(`${item.name}. ${item.desc}`);
                       }}
                       className={`p-3 rounded-xl border-2 transition-all text-left bg-slate-800/80 hover:bg-slate-800 ${
-                        selectedHotspot === item.id ? `${item.color} bg-slate-700/80 scale-105 shadow-lg` : 'border-slate-700'
+                        selectedHotspot === item.id ? `${item.color} bg-slate-700/80 scale-105 ` : 'border-slate-700'
                       }`}
                     >
                       <div className="font-bold text-xs text-white">{item.name}</div>
-                      <div className="text-[10px] text-slate-300 mt-1 line-clamp-2">{item.desc}</div>
+                      <div className="text-xs text-slate-300 mt-1 line-clamp-2">{item.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -390,31 +390,31 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
                 <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
                     <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                      <div className="text-slate-400 text-[10px]">TOTAL STRING VOLTAGE</div>
+                      <div className="text-slate-400 text-xs">TOTAL STRING VOLTAGE</div>
                       <div className="text-xl font-bold text-amber-400 mt-1">
                         {simWiringMode === 'series' ? '80.0 Volts' : '40.0 Volts'}
                       </div>
-                      <div className="text-[10px] text-slate-500">
+                      <div className="text-xs text-slate-500">
                         {simWiringMode === 'series' ? '40V + 40V (Additive)' : 'Equal across branches'}
                       </div>
                     </div>
 
                     <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                      <div className="text-slate-400 text-[10px]">TOTAL STRING CURRENT</div>
+                      <div className="text-slate-400 text-xs">TOTAL STRING CURRENT</div>
                       <div className="text-xl font-bold text-emerald-400 mt-1">
                         {simWiringMode === 'series' ? '9.0 Amps' : '18.0 Amps'}
                       </div>
-                      <div className="text-[10px] text-slate-500">
+                      <div className="text-xs text-slate-500">
                         {simWiringMode === 'series' ? 'Current remains constant' : '9A + 9A (Additive)'}
                       </div>
                     </div>
 
                     <div className="col-span-2 sm:col-span-1 bg-slate-900 p-3 rounded-lg border border-slate-800">
-                      <div className="text-slate-400 text-[10px]">COMBINED POWER RATING</div>
+                      <div className="text-slate-400 text-xs">COMBINED POWER RATING</div>
                       <div className="text-xl font-bold text-sky-400 mt-1">
                         720 Watts Peak
                       </div>
-                      <div className="text-[10px] text-slate-500">P = V × I = 720W in both!</div>
+                      <div className="text-xs text-slate-500">P = V × I = 720W in both!</div>
                     </div>
                   </div>
                 </div>
@@ -484,7 +484,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
           </div>
           <div className="flex items-center justify-between text-xs font-mono text-slate-500">
             <span>{formatTime(currentTime)}</span>
-            <span className="text-[10px] text-amber-700 dark:text-amber-300 font-sans font-semibold">
+            <span className="text-xs text-amber-700 dark:text-amber-300 font-sans font-semibold">
               Data: ~{estimatedDataKB} KB
             </span>
             <span>{formatTime(durationSec)}</span>
@@ -505,7 +505,7 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
 
             <button
               onClick={togglePlay}
-              className="p-3.5 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white shadow-lg active:scale-95 transition-transform flex items-center justify-center"
+              className="p-3.5 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white active:scale-95 transition-transform flex items-center justify-center"
               aria-label={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
@@ -558,11 +558,11 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
       {showTranscript && (
         <div className="p-4 sm:p-5 bg-cream-50 dark:bg-slate-950/60 border-t border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+            <h4 className="text-xs font-bold text-slate-500 flex items-center gap-1.5">
               <FileText className="w-4 h-4 text-solar-600" />
               <span>{t('player.transcript')} ({lang.toUpperCase()})</span>
             </h4>
-            <span className="text-[11px] text-slate-400 font-medium">Bilingual Audio Readout Active</span>
+            <span className="text-xs text-slate-400 font-medium">Bilingual Audio Readout Active</span>
           </div>
           <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
             {lesson.transcript[lang] || lesson.transcript.en}
@@ -576,11 +576,11 @@ export const TriModalPlayer: React.FC<TriModalPlayerProps> = ({
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <Layers className="w-4 h-4 text-amber-700 dark:text-amber-400" />
-              <h4 className="text-xs font-bold text-amber-950 dark:text-amber-300 uppercase tracking-wide">
+              <h4 className="text-xs font-bold text-amber-950 dark:text-amber-300 ">
                 {t('player.practical_checklist')}
               </h4>
             </div>
-            <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full">
+            <span className="text-xs font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full">
               Physical Hub Lab Verification
             </span>
           </div>

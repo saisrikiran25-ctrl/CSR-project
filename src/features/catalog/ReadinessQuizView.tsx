@@ -5,7 +5,7 @@ import {
   Volume2,
   CheckCircle,
   HelpCircle,
-  Sparkles,
+  Star,
   ArrowRight,
   BookOpen,
 } from 'lucide-react';
@@ -65,12 +65,12 @@ export const ReadinessQuizView: React.FC = () => {
 
   return (
     <div className="max-w-xl mx-auto py-8 space-y-6">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6">
         {!showResults ? (
           <>
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
               <div>
-                <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2 py-0.5 rounded">
+                <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2 py-0.5 rounded">
                   Readiness Diagnostic • Question {qIndex + 1} of {questions.length}
                 </span>
                 <h2 className="text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -127,7 +127,7 @@ export const ReadinessQuizView: React.FC = () => {
 
             <button
               onClick={() => navigate('/learn')}
-              className="w-full py-3.5 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-lg transition-all"
+              className="w-full py-3.5 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all"
             >
               Start Lesson 1.1: Workplace Safety & PPE →
             </button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Home, BookOpen, Award, Briefcase, User, Sparkles } from 'lucide-react';
+import { Home, BookOpen, Award, Briefcase, User, Star } from 'lucide-react';
 import { useAuth } from '../features/auth/AuthContext';
 
 export const BottomNav: React.FC = () => {
@@ -13,14 +13,14 @@ export const BottomNav: React.FC = () => {
 
   const navItems = [
     { to: '/', label: t('nav.home'), icon: Home },
-    { to: isStaff ? `/${role}` : '/learn', label: isStaff ? 'Console' : t('nav.learn'), icon: isStaff ? Sparkles : BookOpen },
+    { to: isStaff ? `/${role}` : '/learn', label: isStaff ? 'Console' : t('nav.learn'), icon: isStaff ? Star : BookOpen },
     { to: '/tests', label: t('nav.tests'), icon: Award },
     { to: '/jobs', label: t('nav.jobs'), icon: Briefcase },
     { to: '/profile', label: t('nav.profile'), icon: User },
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 shadow-lg px-2 py-1 safe-area-pb">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-lg px-2 py-1 safe-area-pb">
       <div className="flex items-center justify-around">
         {navItems.map(item => {
           const Icon = item.icon;
@@ -45,7 +45,7 @@ export const BottomNav: React.FC = () => {
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] mt-0.5 tracking-tight">{item.label}</span>
+                  <span className="text-xs mt-0.5 tracking-tight">{item.label}</span>
                 </>
               )}
             </NavLink>

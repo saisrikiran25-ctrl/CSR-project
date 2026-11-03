@@ -37,9 +37,9 @@ export const AdminConsole: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded">
+          <span className="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded">
             Super Administrator Operations
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
@@ -93,8 +93,8 @@ export const AdminConsole: React.FC = () => {
 
       {/* TAB 1: FEATURE FLAGS */}
       {activeTab === 'flags' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
             Runtime Feature Flags
           </h3>
 
@@ -109,7 +109,7 @@ export const AdminConsole: React.FC = () => {
               <label key={f.key} className="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:bg-slate-50">
                 <div>
                   <div className="font-bold text-slate-800 dark:text-slate-200">{f.label}</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{f.desc}</div>
+                  <div className="text-xs text-slate-400 font-mono">{f.desc}</div>
                 </div>
                 <input
                   type="checkbox"
@@ -125,10 +125,10 @@ export const AdminConsole: React.FC = () => {
 
       {/* TAB 2: QUESTION BANK */}
       {activeTab === 'questions' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
                 NSDC/Suryamitra Aligned Question Bank
               </h3>
               <p className="text-slate-500 mt-0.5">MCQ, Image Hotspots, Numeric Formula, Ordering & Voice Viva.</p>
@@ -150,12 +150,12 @@ export const AdminConsole: React.FC = () => {
 
       {/* TAB 3: AUDIT LOGS */}
       {activeTab === 'reset' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
             System Audit & Security Log
           </h3>
 
-          <div className="font-mono space-y-2 text-[11px] text-slate-600 dark:text-slate-400 max-h-60 overflow-y-auto">
+          <div className="font-mono space-y-2 text-xs text-slate-600 dark:text-slate-400 max-h-60 overflow-y-auto">
             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
               [2026-11-04 01:05] AUTH: OTP Challenge issued for +91 98765 43210 (Code 123456)
             </div>

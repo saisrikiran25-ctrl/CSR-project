@@ -44,7 +44,7 @@ export const VoiceGuideButton: React.FC<VoiceGuideProps> = ({ getText, className
         onClick={handleClick}
         className={`flex items-center gap-1.5 p-2 xl:px-3 xl:py-1.5 rounded-full text-xs font-semibold transition-all border ${
           speaking
-            ? 'bg-amber-600 text-white border-amber-500 animate-pulse'
+            ? 'bg-amber-600 text-white border-amber-500 '
             : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-300'
         } ${className}`}
         aria-label={speaking ? t('nav.stop') : t('nav.listen')}
@@ -61,7 +61,7 @@ export const VoiceGuideButton: React.FC<VoiceGuideProps> = ({ getText, className
       onClick={handleClick}
       className={`fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 rounded-full p-3.5 shadow-lg flex items-center justify-center transition-transform active:scale-95 border ${
         speaking
-          ? 'bg-amber-600 border-white text-white animate-pulse'
+          ? 'bg-amber-600 border-white text-white '
           : 'bg-solar-600 hover:bg-solar-700 border-solar-700 text-white'
       } ${className}`}
       aria-label={speaking ? t('nav.stop') : t('nav.listen')}

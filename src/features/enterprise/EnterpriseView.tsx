@@ -31,9 +31,9 @@ export const EnterpriseView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-700 via-sun-600 to-solar-800 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-solar-800 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-900 bg-sun-200 px-3 py-1 rounded-full border border-sun-300">
+          <span className="text-xs font-bold text-slate-900 bg-sun-200 px-3 py-1 rounded-full border border-sun-300">
             Stream C — Women-Led Solar Livelihoods (SHG Hub)
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold mt-2 tracking-tight">
@@ -44,9 +44,9 @@ export const EnterpriseView: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-slate-950/40 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
+        <div className="bg-slate-950/40 px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
           <div className="text-2xl font-extrabold text-sun-300">₹1.2 Cr</div>
-          <div className="text-[10px] text-slate-200 uppercase font-bold">Margin Money Fund</div>
+          <div className="text-xs text-slate-200 font-bold">Margin Money Fund</div>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export const EnterpriseView: React.FC = () => {
               onClick={() => setActiveTab(t.id as any)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition-all ${
                 activeTab === t.id
-                  ? 'bg-solar-600 text-white shadow-sm'
+                  ? 'bg-solar-600 text-white '
                   : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100'
               }`}
             >
@@ -79,8 +79,8 @@ export const EnterpriseView: React.FC = () => {
       {activeTab === 'calculator' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Inputs Card */}
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Sun className="w-4 h-4 text-sun-500" />
               <span>Solar Food Dehydrator Parameters</span>
             </h3>
@@ -137,9 +137,9 @@ export const EnterpriseView: React.FC = () => {
           </div>
 
           {/* Results Profit Card */}
-          <div className="bg-ink-900 rounded-3xl p-6 shadow-md border border-slate-800 text-white flex flex-col justify-between">
+          <div className="bg-ink-900 rounded-3xl p-6 border border-slate-800 text-white flex flex-col justify-between">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-sun-300 bg-sun-400/20 px-2.5 py-0.5 rounded">
+              <span className="text-xs font-bold text-sun-300 bg-sun-400/20 px-2.5 py-0.5 rounded">
                 Estimated Monthly Return
               </span>
               <h3 className="text-xl font-extrabold mt-2 text-white">
@@ -173,8 +173,8 @@ export const EnterpriseView: React.FC = () => {
 
       {/* TAB 2: SUBSIDIES & GRANTS */}
       {activeTab === 'subsidies' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
             Government Subsidies & Urja Kaushal Margin Grants
           </h3>
           <p className="text-slate-500">
@@ -194,7 +194,7 @@ export const EnterpriseView: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <div className="font-bold font-mono text-emerald-600">{s.amount}</div>
-                  <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">{s.status}</span>
+                  <span className="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">{s.status}</span>
                 </div>
               </div>
             ))}
@@ -204,8 +204,8 @@ export const EnterpriseView: React.FC = () => {
 
       {/* TAB 3: ACTIVE SHGS */}
       {activeTab === 'shgs' && (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4 text-xs">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white ">
             Jamnagar Women SHG Solar Enterprises
           </h3>
 
@@ -220,7 +220,7 @@ export const EnterpriseView: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <div className="font-bold font-mono text-emerald-600">₹{shg.monthlyRevenueINR.toLocaleString()} / mo</div>
-                  <span className="text-[10px] uppercase font-bold text-amber-700 bg-sun-100 px-2 py-0.5 rounded">
+                  <span className="text-xs font-bold text-amber-700 bg-sun-100 px-2 py-0.5 rounded">
                     Grant: {shg.grantSubsidyStatus}
                   </span>
                 </div>

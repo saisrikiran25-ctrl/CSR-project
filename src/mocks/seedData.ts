@@ -224,7 +224,7 @@ export const SEEDED_COURSES: Course[] = [
     isFlagship: true,
     modulesCount: 15,
     lessonsCount: 42,
-    thumbnail: 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&auto=format&fit=crop&q=80',
+    thumbnail: '/images/technician.jpg',
     modules: [
       {
         id: 'mod_1_safety',
@@ -465,7 +465,7 @@ export const SEEDED_COURSES: Course[] = [
     isWomenCentric: true,
     modulesCount: 6,
     lessonsCount: 18,
-    thumbnail: 'https://images.unsplash.com/photo-1641749572766-08a4c9dadebd?w=600&auto=format&fit=crop&q=80',
+    thumbnail: '/images/women.jpg',
     modules: [
       {
         id: 'mod_w1_dryers',

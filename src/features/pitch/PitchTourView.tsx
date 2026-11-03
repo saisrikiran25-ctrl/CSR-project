@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Sparkles,
+  Star,
   ArrowRight,
   ArrowLeft,
   Sun,
@@ -34,19 +34,19 @@ export const PitchTourView: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div className="bg-solar-50 dark:bg-slate-800 p-3 rounded-xl border border-solar-200">
               <div className="text-xl font-bold text-solar-700 dark:text-solar-300">6,000</div>
-              <div className="text-[11px] text-slate-500 font-semibold">Trained Beneficiaries</div>
+              <div className="text-xs text-slate-500 font-semibold">Trained Beneficiaries</div>
             </div>
             <div className="bg-sun-50 dark:bg-slate-800 p-3 rounded-xl border border-sun-200">
               <div className="text-xl font-bold text-amber-700 dark:text-sun-400">≥ 50%</div>
-              <div className="text-[11px] text-slate-500 font-semibold">Women & SHG Focus</div>
+              <div className="text-xs text-slate-500 font-semibold">Women & SHG Focus</div>
             </div>
             <div className="bg-emerald-50 dark:bg-slate-800 p-3 rounded-xl border border-emerald-200">
               <div className="text-xl font-bold text-emerald-700 dark:text-emerald-400">70%</div>
-              <div className="text-[11px] text-slate-500 font-semibold">6-Month Earning Goal</div>
+              <div className="text-xs text-slate-500 font-semibold">6-Month Earning Goal</div>
             </div>
             <div className="bg-indigo-50 dark:bg-slate-800 p-3 rounded-xl border border-indigo-200">
               <div className="text-xl font-bold text-indigo-700 dark:text-indigo-400">₹9.5 Cr</div>
-              <div className="text-[11px] text-slate-500 font-semibold">Sec 135 CSR Budget</div>
+              <div className="text-xs text-slate-500 font-semibold">Sec 135 CSR Budget</div>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@ export const PitchTourView: React.FC = () => {
       title: 'Reliance Foundation Funder Executive View',
       tagline: 'Clean energy generation, CO2 avoided, and transparent CSR MIS.',
       proposalStream: 'Governance & CSR',
-      icon: Sparkles,
+      icon: Star,
       content: (
         <div className="space-y-4">
           <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
@@ -189,9 +189,9 @@ export const PitchTourView: React.FC = () => {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Top Step Progress Bar */}
-      <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+      <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-sun-500" />
+          <Star className="w-5 h-5 text-sun-500" />
           <span className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
             Stakeholder Pitch Tour (Step {currentStep + 1} of {steps.length})
           </span>
@@ -211,10 +211,10 @@ export const PitchTourView: React.FC = () => {
       </div>
 
       {/* Main Pitch Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-md border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 space-y-6">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
-            <span className="text-xs font-bold text-solar-600 uppercase tracking-wider bg-solar-50 px-2.5 py-0.5 rounded">
+            <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
               {current.proposalStream}
             </span>
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
@@ -225,7 +225,7 @@ export const PitchTourView: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-sun-400 to-solar-600 text-white shadow-lg flex-shrink-0">
+          <div className="p-3.5 rounded-2xl bg-solar-600 text-white flex-shrink-0">
             <Icon className="w-7 h-7" />
           </div>
         </div>
@@ -262,7 +262,7 @@ export const PitchTourView: React.FC = () => {
             ) : (
               <button
                 onClick={() => navigate('/')}
-                className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-lg"
+                className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs "
               >
                 <span>Complete Tour & Launch</span>
                 <CheckCircle className="w-4 h-4" />

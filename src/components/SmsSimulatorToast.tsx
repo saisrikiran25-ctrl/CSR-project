@@ -28,10 +28,10 @@ export const SmsSimulatorToast: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-md bg-slate-900/95 text-white backdrop-blur-md rounded-2xl p-4 shadow-lg border border-sun-400/30 animate-bounce-once transition-all">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-md bg-slate-900/95 text-white rounded-2xl p-4 shadow-lg border border-sun-400/30 -once transition-all">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-sun-400 font-semibold text-sm">
-          <MessageSquare className="w-5 h-5 text-sun-400 animate-pulse" />
+          <MessageSquare className="w-5 h-5 text-sun-400 " />
           <span>SIMULATED SMS NOTIFICATION</span>
         </div>
         <button
@@ -49,11 +49,11 @@ export const SmsSimulatorToast: React.FC = () => {
 
       <div className="mt-3 flex items-center justify-between">
         <div className="text-xs text-amber-300 font-medium">
-          OTP Code: <span className="text-lg font-bold tracking-widest text-white ml-1 bg-amber-600/40 px-2 py-0.5 rounded">{smsData.otp}</span>
+          OTP Code: <span className="text-lg font-bold text-white ml-1 bg-amber-600/40 px-2 py-0.5 rounded">{smsData.otp}</span>
         </div>
         <button
           onClick={handleCopyAndAutofill}
-          className="bg-sun-500 hover:bg-sun-600 text-slate-900 font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md transition-all active:scale-95"
+          className="bg-sun-500 hover:bg-sun-600 text-slate-900 font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all active:scale-95"
         >
           {copied ? (
             <>

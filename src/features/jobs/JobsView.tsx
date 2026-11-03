@@ -11,7 +11,7 @@ import {
   CheckCircle,
   FileText,
   Filter,
-  Sparkles,
+  Star,
   ArrowRight,
 } from 'lucide-react';
 
@@ -48,9 +48,9 @@ export const JobsView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-sun-300 bg-sun-400/20 px-3 py-1 rounded-full border border-sun-400/30">
+          <span className="text-xs font-bold text-sun-300 bg-sun-400/20 px-3 py-1 rounded-full border border-sun-400/30">
             Stream D — Livelihoods & Reliance Vendor Placement
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold mt-2 tracking-tight">
@@ -61,9 +61,9 @@ export const JobsView: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
+        <div className="bg-white/10 px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
           <div className="text-2xl font-extrabold text-sun-400">74%</div>
-          <div className="text-[10px] text-slate-300 uppercase font-bold">Placement Rate</div>
+          <div className="text-xs text-slate-300 font-bold">Placement Rate</div>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export const JobsView: React.FC = () => {
             onClick={() => setFilterType(f.id)}
             className={`px-4 py-2 rounded-xl transition-all ${
               filterType === f.id
-                ? 'bg-solar-600 text-white shadow-sm'
+                ? 'bg-solar-600 text-white '
                 : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100'
             }`}
           >
@@ -96,15 +96,15 @@ export const JobsView: React.FC = () => {
           return (
             <div
               key={job.id}
-              className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-800 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-6 hover:border-slate-300 border border-slate-200 dark:border-slate-800 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
             >
               <div className="space-y-2 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 uppercase">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 ">
                     {job.type.replace('_', ' ')}
                   </span>
                   {job.isRelianceVendor && (
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-sun-100 text-amber-900 border border-sun-300">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sun-100 text-amber-900 border border-sun-300">
                       RELIANCE PARTNER VENDOR
                     </span>
                   )}
@@ -133,7 +133,7 @@ export const JobsView: React.FC = () => {
                   {job.requiredSkills.map(s => (
                     <span
                       key={s}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-medium"
+                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium"
                     >
                       {s}
                     </span>
@@ -148,7 +148,7 @@ export const JobsView: React.FC = () => {
                     <span
                       className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 ${
                         appStatus === 'shortlisted'
-                          ? 'bg-sun-100 text-amber-900 border border-sun-300 animate-pulse'
+                          ? 'bg-sun-100 text-amber-900 border border-sun-300 '
                           : 'bg-emerald-100 text-emerald-900'
                       }`}
                     >
@@ -156,7 +156,7 @@ export const JobsView: React.FC = () => {
                       <span>Status: {appStatus.toUpperCase()}</span>
                     </span>
                     {appStatus === 'shortlisted' && (
-                      <span className="text-[10px] text-amber-700 font-semibold mt-1">
+                      <span className="text-xs text-amber-700 font-semibold mt-1">
                         Interview scheduled with EPC supervisor
                       </span>
                     )}
@@ -164,13 +164,13 @@ export const JobsView: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => handleApply(job.id)}
-                    className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow-md transition-all active:scale-95"
+                    className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95"
                   >
                     <span>One-Tap Apply</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 )}
-                <span className="text-[10px] text-slate-400">{job.vacancies} vacancies open</span>
+                <span className="text-xs text-slate-400">{job.vacancies} vacancies open</span>
               </div>
             </div>
           );

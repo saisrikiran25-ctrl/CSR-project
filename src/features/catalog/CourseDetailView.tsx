@@ -38,13 +38,6 @@ export const CourseDetailView: React.FC = () => {
     <div className="space-y-6">
       {/* Course Banner */}
       <div className="rounded-2xl bg-ink-900 text-white p-6 sm:p-10 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            background:
-              'radial-gradient(50% 80% at 100% 0%, rgba(10,102,194,0.5) 0%, rgba(10,102,194,0) 70%)',
-          }}
-        />
         <div className="relative space-y-4 max-w-3xl">
           <Link to="/learn" className="text-xs text-slate-300 hover:text-white">
             ← All courses
@@ -146,7 +139,7 @@ export const CourseDetailView: React.FC = () => {
                             <p className="text-xs text-slate-500 line-clamp-2">
                               {lesson.summary[lang] || lesson.summary.en}
                             </p>
-                            <div className="flex items-center gap-1.5 text-[11px] text-slate-600">
+                            <div className="flex items-center gap-1.5 text-xs text-slate-600">
                               {lesson.modes.includes('audio') && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200">
                                   <Volume2 className="w-3 h-3 text-solar-600" /> Audio

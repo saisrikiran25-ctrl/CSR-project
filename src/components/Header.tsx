@@ -8,7 +8,7 @@ import {
   Globe,
   User,
   LogOut,
-  Sparkles,
+  Star,
   ShieldCheck,
   ChevronDown,
   Wifi,
@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
         {/* Logo / Brand */}
         <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
             <span className="block font-extrabold text-[17px] text-slate-900 dark:text-white tracking-tight">
               Urja Kaushal
             </span>
-            <span className="hidden sm:block text-[11px] text-slate-500">ઊર્જા કૌશલ્ય · Learning</span>
+            <span className="hidden sm:block text-xs text-slate-500">ઊર્જા કૌશલ્ય · Learning</span>
           </div>
         </Link>
 
@@ -76,7 +76,7 @@ export const Header: React.FC = () => {
             to="/pitch"
             className="hidden xl:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-solar-600 text-solar-600 hover:bg-solar-50 font-semibold text-xs transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Star className="w-3.5 h-3.5" />
             <span>{t('nav.pitch')}</span>
           </Link>
 
@@ -100,13 +100,13 @@ export const Header: React.FC = () => {
 
           {/* Connectivity Status */}
           <div
-            className="hidden sm:flex items-center gap-1 text-[11px] font-medium text-slate-500"
+            className="hidden sm:flex items-center gap-1 text-xs font-medium text-slate-500"
             title={isOnline ? 'Online mode active' : 'Offline mode active'}
           >
             {isOnline ? (
               <Wifi className="w-3.5 h-3.5 text-emerald-500" />
             ) : (
-              <WifiOff className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              <WifiOff className="w-3.5 h-3.5 text-amber-600 " />
             )}
           </div>
 
@@ -118,12 +118,12 @@ export const Header: React.FC = () => {
                 className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-slate-300 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-200 font-medium hover:bg-slate-50 transition-colors"
                 aria-expanded={showPersonaMenu}
               >
-                <div className="w-6 h-6 rounded-full bg-solar-600 text-white flex items-center justify-center font-bold text-[10px]">
+                <div className="w-6 h-6 rounded-full bg-solar-600 text-white flex items-center justify-center font-bold text-xs">
                   {user.name.charAt(0)}
                 </div>
                 <div className="hidden sm:block text-left">
                   <div className="font-bold leading-tight">{user.name.split(' ')[0]}</div>
-                  <div className="text-[10px] text-slate-500 capitalize">{role}</div>
+                  <div className="text-xs text-slate-500 capitalize">{role}</div>
                 </div>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
               </button>
@@ -133,16 +133,16 @@ export const Header: React.FC = () => {
                 <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 py-2 z-50">
                   <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-700">
                     <p className="text-xs font-bold text-slate-900 dark:text-white">{user.name}</p>
-                    <p className="text-[11px] text-slate-500 capitalize">Role: {role}</p>
+                    <p className="text-xs text-slate-500 capitalize">Role: {role}</p>
                     {user.hubId && (
-                      <span className="inline-block mt-1 text-[10px] bg-sun-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">
+                      <span className="inline-block mt-1 text-xs bg-sun-100 text-amber-800 px-1.5 py-0.5 rounded font-medium">
                         Hub: {user.hubId.replace('hub_', '').replace('_', ' ')}
                       </span>
                     )}
                   </div>
 
                   {/* Switch Persona */}
-                  <div className="px-3 py-1.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                  <div className="px-3 py-1.5 text-xs font-bold text-slate-400 ">
                     Quick Persona Switch:
                   </div>
                   <div className="max-h-56 overflow-y-auto px-1 space-y-1">
@@ -167,9 +167,9 @@ export const Header: React.FC = () => {
                       >
                         <div>
                           <div>{p.name}</div>
-                          <div className="text-[10px] text-slate-500">{p.badge}</div>
+                          <div className="text-xs text-slate-500">{p.badge}</div>
                         </div>
-                        <span className="text-[10px] uppercase font-semibold px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200">
+                        <span className="text-xs font-semibold px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200">
                           {p.role}
                         </span>
                       </button>
