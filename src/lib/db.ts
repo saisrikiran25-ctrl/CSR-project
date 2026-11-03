@@ -77,6 +77,11 @@ export class UrjaDatabase extends Dexie {
     const courseCount = await this.courses.count();
     if (courseCount === 0) {
       await this.courses.bulkAdd(SEEDED_COURSES);
+    } else {
+      // Keep thumbnails current for browsers that seeded an older copy.
+      for (const c of SEEDED_COURSES) {
+        await this.courses.update(c.id, { thumbnail: c.thumbnail });
+      }
     }
 
     const jobCount = await this.jobs.count();

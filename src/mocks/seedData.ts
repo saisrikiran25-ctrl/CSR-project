@@ -224,7 +224,7 @@ export const SEEDED_COURSES: Course[] = [
     isFlagship: true,
     modulesCount: 15,
     lessonsCount: 42,
-    thumbnail: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?w=600&auto=format&fit=crop&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&auto=format&fit=crop&q=80',
     modules: [
       {
         id: 'mod_1_safety',
