@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
         </Link>
 
         {/* Primary nav (desktop) */}
-        <nav className="hidden lg:flex items-center gap-1 ml-6 mr-auto">
+        <nav className={`hidden lg:flex items-center gap-1 ml-6 mr-auto ${user ? '' : 'lg:hidden'}`}>
           {[
             { to: '/learn', label: t('nav.learn') },
             { to: '/tests', label: t('nav.tests') },
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 ml-auto">
           {/* Pitch Mode Shortcut */}
           <Link
             to="/pitch"

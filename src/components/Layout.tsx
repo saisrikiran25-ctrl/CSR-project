@@ -65,6 +65,7 @@ export const Layout: React.FC = () => {
 
       <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex gap-8">
         {/* Desktop Sidebar */}
+        {user && (
         <aside className="hidden lg:block w-60 flex-shrink-0">
           <div className="sticky top-24 space-y-4">
             <div className="bg-white dark:bg-slate-900 rounded-xl p-2 border border-slate-200 dark:border-slate-800">
@@ -93,6 +94,7 @@ export const Layout: React.FC = () => {
             </div>
           </div>
         </aside>
+        )}
 
         {/* Dynamic Route Content */}
         <main className="flex-1 min-w-0 pb-24 md:pb-12">
@@ -101,7 +103,7 @@ export const Layout: React.FC = () => {
       </div>
 
       <VoiceGuideButton />
-      <BottomNav />
+      {user && <BottomNav />}
 
       <footer className="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">

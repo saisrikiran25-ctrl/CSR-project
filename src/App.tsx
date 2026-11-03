@@ -22,6 +22,7 @@ import { EmployerConsole } from './features/dashboards/EmployerConsole';
 import { PMDashboard } from './features/dashboards/PMDashboard';
 import { FunderDashboard } from './features/dashboards/FunderDashboard';
 import { AdminConsole } from './features/dashboards/AdminConsole';
+import { RequireAuth } from './features/auth/RequireAuth';
 import { AuthProvider } from './features/auth/AuthContext';
 import './i18n';
 
@@ -31,32 +32,37 @@ export const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<LandingView />} />
-            <Route path="pitch" element={<PitchTourView />} />
+            {/* Public: sign-in, registration and third-party certificate verification */}
             <Route path="login" element={<LoginView />} />
             <Route path="register" element={<RegisterView />} />
-            <Route path="readiness" element={<ReadinessQuizView />} />
-            <Route path="learn" element={<CatalogueView />} />
-            <Route path="learn/:courseId" element={<CourseDetailView />} />
-            <Route path="learn/:courseId/:lessonId" element={<LessonPlayerView />} />
-            <Route path="tests" element={<AssessmentHubView />} />
             <Route path="verify/:certId" element={<VerifyCertificateView />} />
-            <Route path="jobs" element={<JobsView />} />
-            <Route path="enterprise" element={<EnterpriseView />} />
-            <Route path="profile" element={<LearnerProfileView />} />
-            <Route path="community" element={<CommunityView />} />
 
-            {/* Stakeholder Consoles */}
-            <Route path="trainer" element={<TrainerConsole />} />
-            <Route path="coordinator" element={<CoordinatorConsole />} />
-            <Route path="assessor" element={<AssessorConsole />} />
-            <Route path="employer" element={<EmployerConsole />} />
-            <Route path="pm" element={<PMDashboard />} />
-            <Route path="funder" element={<FunderDashboard />} />
-            <Route path="admin" element={<AdminConsole />} />
+            {/* Everything else requires a signed-in session */}
+            <Route element={<RequireAuth />}>
+              <Route index element={<LandingView />} />
+              <Route path="pitch" element={<PitchTourView />} />
+              <Route path="readiness" element={<ReadinessQuizView />} />
+              <Route path="learn" element={<CatalogueView />} />
+              <Route path="learn/:courseId" element={<CourseDetailView />} />
+              <Route path="learn/:courseId/:lessonId" element={<LessonPlayerView />} />
+              <Route path="tests" element={<AssessmentHubView />} />
+              <Route path="jobs" element={<JobsView />} />
+              <Route path="enterprise" element={<EnterpriseView />} />
+              <Route path="profile" element={<LearnerProfileView />} />
+              <Route path="community" element={<CommunityView />} />
+
+              {/* Stakeholder Consoles */}
+              <Route path="trainer" element={<TrainerConsole />} />
+              <Route path="coordinator" element={<CoordinatorConsole />} />
+              <Route path="assessor" element={<AssessorConsole />} />
+              <Route path="employer" element={<EmployerConsole />} />
+              <Route path="pm" element={<PMDashboard />} />
+              <Route path="funder" element={<FunderDashboard />} />
+              <Route path="admin" element={<AdminConsole />} />
+            </Route>
 
             {/* Catch-all fallback */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
           </Route>
         </Routes>
       </BrowserRouter>
