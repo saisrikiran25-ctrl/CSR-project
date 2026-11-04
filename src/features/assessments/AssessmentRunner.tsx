@@ -168,7 +168,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
           <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2 py-0.5 rounded">
-            Question {currentIndex + 1} of {questions.length}
+            {t('assessment.question', { current: currentIndex + 1, total: questions.length })}
           </span>
           <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
             {assessment.title[lang] || assessment.title.en}
@@ -179,7 +179,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
           {tabBlurWarnings > 0 && (
             <div className="flex items-center gap-1 text-xs font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded-lg border border-rose-200">
               <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
-              <span>Tab switches: {tabBlurWarnings}</span>
+              <span>{t('assessment.tab_switches', { count: tabBlurWarnings })}</span>
             </div>
           )}
 
@@ -207,8 +207,8 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
             <button
               onClick={() => speechService.speak(currentQ.prompt[lang] || currentQ.prompt.en)}
               className="p-2.5 rounded-2xl bg-sun-100 hover:bg-sun-200 text-amber-900 border border-sun-300 flex-shrink-0 transition-transform active:scale-95"
-              aria-label="Read question aloud"
-              title="Read question aloud"
+              aria-label={t('assessment.read_aloud')}
+              title={t('assessment.read_aloud')}
             >
               <Volume2 className="w-5 h-5 text-amber-800" />
             </button>
@@ -249,7 +249,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
             <div className="space-y-3">
               <div className="max-w-xs">
                 <label className="text-xs font-semibold text-slate-500 mb-1 block">
-                  Enter Calculated Numeric Value:
+                  {t('assessment.numeric')}
                 </label>
                 <input
                   type="number"
@@ -267,7 +267,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
           {currentQ.type === 'hotspot' && (
             <div className="space-y-3">
               <div className="text-xs text-slate-500 font-medium">
-                Click directly on the component diagram to mark your answer:
+                {t('assessment.hotspot')}
               </div>
               <div
                 onClick={e => {
@@ -314,7 +314,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
               {hotspotClicks[currentQ.id] && (
                 <div className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4" />
-                  <span>Component hotspot selected at coordinates ({hotspotClicks[currentQ.id].x}%, {hotspotClicks[currentQ.id].y}%)</span>
+                  <span>{t('assessment.hotspot_selected', { x: hotspotClicks[currentQ.id].x, y: hotspotClicks[currentQ.id].y })}</span>
                 </div>
               )}
             </div>
@@ -324,7 +324,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
           {currentQ.type === 'ordering' && currentQ.options && (
             <div className="space-y-3">
               <div className="text-xs text-slate-500 font-medium">
-                Tap each step below to add it in chronological sequence:
+                {t('assessment.ordering')}
               </div>
               <div className="space-y-2">
                 {currentQ.options.map(step => {
@@ -368,7 +368,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
           {(currentQ.type === 'voice_viva' || currentQ.type === 'audio_prompt') && (
             <div className="space-y-3 p-4 bg-sun-50/50 dark:bg-slate-800 rounded-2xl border border-sun-200 dark:border-slate-700">
               <div className="text-xs font-bold text-amber-900 dark:text-amber-300">
-                Spoken Voice Answer (Assessor Reviewed):
+                {t('assessment.voice')}
               </div>
               <div className="flex items-center gap-3">
                 <button
@@ -392,13 +392,13 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
                   }`}
                 >
                   {isRecording ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-                  <span>{isRecording ? 'Recording Voice Answer (3s)...' : 'Hold to Record Voice Answer'}</span>
+                  <span>{isRecording ? t('assessment.recording') : t('assessment.hold_record')}</span>
                 </button>
 
                 {voiceRecordings[currentQ.id] && (
                   <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
                     <CheckCircle className="w-4 h-4" />
-                    <span>Voice recording attached!</span>
+                    <span>{t('assessment.attached')}</span>
                   </span>
                 )}
               </div>
@@ -413,7 +413,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
               className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-40 disabled:pointer-events-none transition-all"
             >
               <ChevronLeft className="w-4 h-4" />
-              <span>Previous</span>
+              <span>{t('assessment.previous')}</span>
             </button>
 
             {currentIndex < questions.length - 1 ? (
@@ -421,7 +421,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
                 onClick={handleNext}
                 className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold bg-solar-600 hover:bg-solar-700 text-white shadow transition-all"
               >
-                <span>Next Question</span>
+                <span>{t('assessment.next')}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             ) : (
@@ -429,7 +429,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
                 onClick={handleSubmit}
                 className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition-all"
               >
-                <span>Submit & View Results</span>
+                <span>{t('assessment.submit_results')}</span>
                 <CheckCircle className="w-4 h-4" />
               </button>
             )}
@@ -439,4 +439,3 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
     </div>
   );
 };
-

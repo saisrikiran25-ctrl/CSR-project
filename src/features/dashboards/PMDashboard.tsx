@@ -12,8 +12,10 @@ import {
   Clock,
   ChevronRight,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const PMDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedPhaseMonth, setSelectedPhaseMonth] = useState(14); // Mid-programme Month 14
 
   const budgetBreakdown = [
@@ -71,7 +73,7 @@ export const PMDashboard: React.FC = () => {
             Urja Kaushal PMU • Management Information System (MIS)
           </span>
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
-            Programme Performance & M&E Console
+            {t('dashboard.pm')}
           </h1>
           <p className="text-xs text-slate-500">
             Monitoring 6,000 Beneficiary Targets, 10 Village Hubs & ₹9.5 Cr Budget
@@ -233,4 +235,3 @@ export const PMDashboard: React.FC = () => {
     </div>
   );
 };
-

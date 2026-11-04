@@ -7,8 +7,10 @@ import {
   AlertCircle,
   ExternalLink,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const AssessorConsole: React.FC = () => {
+  const { t } = useTranslation();
   const [candidates, setCandidates] = useState([
     {
       id: 'CAN-01',
@@ -55,7 +57,7 @@ export const AssessorConsole: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded">
-            External Third-Party Evaluation Panel
+            {t('dashboard.assessor')}
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
             Skill Council for Green Jobs (SCGJ-Style) Assessor Queue
@@ -123,7 +125,7 @@ export const AssessorConsole: React.FC = () => {
                       }`}
                     >
                       <CheckCircle className="w-4 h-4" />
-                      <span>{isSigned ? 'Signed & Issued' : 'Sign & Issue Certificate'}</span>
+                      <span>{isSigned ? t('dashboard.signed') : t('dashboard.sign_issue')}</span>
                     </button>
                   ) : (
                     <span className="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 font-semibold border border-rose-200">
@@ -139,4 +141,3 @@ export const AssessorConsole: React.FC = () => {
     </div>
   );
 };
-

@@ -10,8 +10,10 @@ import {
   AlertTriangle,
   CheckCircle,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const AdminConsole: React.FC = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'flags' | 'questions' | 'reset'>('flags');
   const [flags, setFlags] = useState({
     demoMode: true,
@@ -43,7 +45,7 @@ export const AdminConsole: React.FC = () => {
             Super Administrator Operations
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
-            Platform Configuration & Integrity Management
+            {t('dashboard.admin')}
           </h1>
           <p className="text-xs text-slate-500">
             Feature Flags, Question Banks, Certificate Registry, Audit Logs
@@ -55,7 +57,7 @@ export const AdminConsole: React.FC = () => {
           className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow transition-all active:scale-95"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          <span>Reset Demo Data</span>
+          <span>{t('dashboard.reset')}</span>
         </button>
       </div>
 
@@ -171,4 +173,3 @@ export const AdminConsole: React.FC = () => {
     </div>
   );
 };
-

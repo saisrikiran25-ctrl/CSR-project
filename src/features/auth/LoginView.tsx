@@ -53,7 +53,7 @@ export const LoginView: React.FC = () => {
       setOtpSent(true);
       setCooldown(30);
     } catch (err: any) {
-      setErrorMsg(err.message || 'Error requesting OTP');
+      setErrorMsg(err.message || t('auth.send_otp'));
     }
   };
 
@@ -64,7 +64,7 @@ export const LoginView: React.FC = () => {
       await loginWithOtp(phone, otp);
       navigate('/learn');
     } catch (err: any) {
-      setErrorMsg(err.message || 'Invalid OTP code');
+      setErrorMsg(err.message || t('auth.otp_label'));
     }
   };
 
@@ -75,7 +75,7 @@ export const LoginView: React.FC = () => {
       await loginWithPassword(email, password);
       navigate('/');
     } catch (err: any) {
-      setErrorMsg(err.message || 'Login failed');
+      setErrorMsg(err.message || t('nav.login'));
     }
   };
 
@@ -97,13 +97,13 @@ export const LoginView: React.FC = () => {
       <div className="text-center space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sun-100 text-amber-900 text-xs font-bold border border-sun-300">
           <Star className="w-3.5 h-3.5 text-amber-600" />
-          <span>Rural Digital Learning & Livelihoods Prototype</span>
+          <span>{t('login.eyebrow')}</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-          Sign In to Urja Kaushal • પ્રવેશ
+          {t('login.title')}
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-          Solar technical skills, SHG enterprise, and certified Reliance vendor employment.
+          {t('login.subtitle')}
         </p>
       </div>
 
@@ -120,7 +120,7 @@ export const LoginView: React.FC = () => {
                   : 'text-slate-600 dark:text-slate-300'
               }`}
             >
-              Learner Mobile + OTP
+              {t('login.learner')}
             </button>
             <button
               onClick={() => setAuthMethod('password')}
@@ -130,7 +130,7 @@ export const LoginView: React.FC = () => {
                   : 'text-slate-600 dark:text-slate-300'
               }`}
             >
-              Staff & Vendor Email
+              {t('login.staff')}
             </button>
           </div>
 
@@ -173,7 +173,7 @@ export const LoginView: React.FC = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                      {t('auth.otp_label')} (Demo Default: 123456)
+                      {t('auth.otp_label')} (Demo: 123456)
                     </label>
                     <input
                       type="text"
@@ -201,16 +201,16 @@ export const LoginView: React.FC = () => {
                       onClick={handleSendOtp}
                       className="text-xs text-solar-600 font-semibold hover:underline disabled:opacity-40"
                     >
-                      {cooldown > 0 ? `Resend OTP in ${cooldown}s` : 'Resend OTP via SMS'}
+                      {cooldown > 0 ? t('login.resend_in', { seconds: cooldown }) : t('login.resend')}
                     </button>
                   </div>
                 </div>
               )}
 
               <div className="pt-2 text-center text-xs text-slate-500">
-                New learner?{' '}
+                {t('login.new_learner')}{' '}
                 <Link to="/register" className="text-solar-600 font-bold hover:underline">
-                  Register in 4 simple steps →
+                  {t('login.register')}
                 </Link>
               </div>
             </form>
@@ -221,7 +221,7 @@ export const LoginView: React.FC = () => {
             <form onSubmit={handleStaffLogin} className="space-y-4">
               <div>
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Official Email Address
+                  {t('login.email')}
                 </label>
                 <input
                   type="email"
@@ -235,7 +235,7 @@ export const LoginView: React.FC = () => {
 
               <div>
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Password (Demo: demo1234)
+                  {t('login.password')}
                 </label>
                 <input
                   type="password"
@@ -251,7 +251,7 @@ export const LoginView: React.FC = () => {
                 type="submit"
                 className="w-full py-3 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95"
               >
-                Sign In to Console
+                {t('login.console_signin')}
               </button>
             </form>
           )}
@@ -266,7 +266,7 @@ export const LoginView: React.FC = () => {
                 {t('auth.demo_personas')}
               </h3>
               <p className="text-xs text-slate-400">
-                Click any persona below to experience their specific role interface:
+                {t('login.demo_hint')}
               </p>
             </div>
           </div>
@@ -301,4 +301,3 @@ export const LoginView: React.FC = () => {
     </div>
   );
 };
-

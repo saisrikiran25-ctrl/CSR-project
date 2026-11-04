@@ -9,8 +9,10 @@ import {
   FileText,
   Search,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const EmployerConsole: React.FC = () => {
+  const { t } = useTranslation();
   const [jobs, setJobs] = useState(SEEDED_JOBS);
   const [showNewJobModal, setShowNewJobModal] = useState(false);
   const [shortlisted, setShortlisted] = useState<Record<string, boolean>>({
@@ -46,7 +48,7 @@ export const EmployerConsole: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded">
-            Reliance Giga Complex & Vendor Ecosystem
+            {t('dashboard.employer')}
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
             Saurashtra Solar EPC Services (Partner Employer)
@@ -61,7 +63,7 @@ export const EmployerConsole: React.FC = () => {
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow transition-all"
         >
           <PlusCircle className="w-4 h-4" />
-          <span>Post New Solar Job</span>
+          <span>{t('dashboard.post_job')}</span>
         </button>
       </div>
 
@@ -71,7 +73,7 @@ export const EmployerConsole: React.FC = () => {
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Users className="w-4 h-4 text-solar-600" />
-              <span>Certified Job-Ready Candidates (Consent Granted)</span>
+              <span>{t('dashboard.candidates')}</span>
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
               Only learners who have explicitly consented in their Privacy Center are listed here.
@@ -114,7 +116,7 @@ export const EmployerConsole: React.FC = () => {
                   }`}
                 >
                   <CheckCircle className="w-3.5 h-3.5" />
-                  <span>{shortlisted[c.id] ? 'Shortlisted' : 'Shortlist Candidate'}</span>
+                  <span>{shortlisted[c.id] ? t('dashboard.shortlisted') : t('dashboard.shortlist')}</span>
                 </button>
               </div>
             </div>
@@ -149,4 +151,3 @@ export const EmployerConsole: React.FC = () => {
     </div>
   );
 };
-

@@ -9,8 +9,10 @@ import {
   AlertCircle,
   CheckCircle,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const TrainerConsole: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedCohort, setSelectedCohort] = useState('JB-Cohort-03');
   const [markedAttendance, setMarkedAttendance] = useState<Record<string, boolean>>({
     'L01': true,
@@ -32,7 +34,7 @@ export const TrainerConsole: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
-            Master Trainer Lab Console
+            {t('dashboard.trainer')}
           </span>
           <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
             Jambuda Technical Center & Rooftop Lab
@@ -43,7 +45,7 @@ export const TrainerConsole: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2 text-xs">
-          <span className="font-bold text-slate-500">Active Cohort:</span>
+          <span className="font-bold text-slate-500">{t('dashboard.active_cohort')}</span>
           <select
             value={selectedCohort}
             onChange={e => setSelectedCohort(e.target.value)}
@@ -60,7 +62,7 @@ export const TrainerConsole: React.FC = () => {
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <CheckSquare className="w-4 h-4 text-emerald-600" />
-            <span>Today's Hands-on Lab Attendance & QR Verification</span>
+            <span>{t('dashboard.attendance')}</span>
           </h3>
           <span className="text-xs font-semibold text-slate-500">Session: 9:00 AM - 1:00 PM</span>
         </div>
@@ -99,7 +101,7 @@ export const TrainerConsole: React.FC = () => {
                   }`}
                 >
                   <CheckCircle className="w-3.5 h-3.5" />
-                  <span>{markedAttendance[l.id] ? 'Present' : 'Mark Present'}</span>
+                  <span>{markedAttendance[l.id] ? t('dashboard.present') : t('dashboard.mark_present')}</span>
                 </button>
               </div>
             </div>
@@ -139,10 +141,9 @@ export const TrainerConsole: React.FC = () => {
           onClick={() => alert('Practical marks saved to learner digital record!')}
           className="mt-3 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white text-xs font-bold shadow"
         >
-          Save Practical Lab Rubric Scores
+          {t('dashboard.save_scores')}
         </button>
       </div>
     </div>
   );
 };
-

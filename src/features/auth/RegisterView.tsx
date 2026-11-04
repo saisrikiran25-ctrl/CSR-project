@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import { useTranslation } from 'react-i18next';
 import { SEEDED_HUBS } from '../../mocks/seedData';
 import {
   UserCheck,
@@ -15,6 +16,7 @@ import {
 
 export const RegisterView: React.FC = () => {
   const { registerLearner, requestOtp } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [step, setStep] = useState(1);
@@ -68,12 +70,12 @@ export const RegisterView: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div>
           <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
-            Step {step} of 3
+            {t('register.step', { step })}
           </span>
           <h2 className="text-base font-bold text-slate-900 dark:text-white mt-1">
-            {step === 1 && 'Mobile Verification • મોબાઇલ ચકાસણી'}
-            {step === 2 && 'Personal Details & Cluster • વિગતો'}
-            {step === 3 && 'Batch Timings & Consent • સંમતિ'}
+            {step === 1 && t('register.mobile')}
+            {step === 2 && t('register.details')}
+            {step === 3 && t('register.consent')}
           </h2>
         </div>
 
@@ -95,7 +97,7 @@ export const RegisterView: React.FC = () => {
           <div className="space-y-4">
             <div>
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Enter 10-Digit Mobile Number
+                {t('register.mobile_number')}
               </label>
               <input
                 type="tel"
@@ -112,12 +114,12 @@ export const RegisterView: React.FC = () => {
               className="w-full py-3 rounded-2xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs shadow transition-all flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              <span>Get Simulated OTP (SMS: 123456)</span>
+              <span>{t('register.get_otp')}</span>
             </button>
 
             <div>
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Enter 6-Digit OTP Received
+                {t('register.otp_received')}
               </label>
               <input
                 type="text"
@@ -141,7 +143,7 @@ export const RegisterView: React.FC = () => {
               }}
               className="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-all"
             >
-              Verify OTP & Proceed to Details →
+              {t('register.verify')}
             </button>
           </div>
         )}
@@ -151,7 +153,7 @@ export const RegisterView: React.FC = () => {
           <div className="space-y-4 text-xs">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Full Name (નામ)
+                {t('register.full_name')}
               </label>
               <input
                 type="text"
@@ -166,23 +168,23 @@ export const RegisterView: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Gender (લિંગ)
+                  {t('register.gender')}
                 </label>
                 <select
                   value={gender}
                   onChange={e => setGender(e.target.value as any)}
                   className="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent font-medium"
                 >
-                  <option value="female">Female (મહિલા)</option>
-                  <option value="male">Male (પુરુષ)</option>
-                  <option value="other">Other</option>
-                  <option value="prefer_not_to_say">Prefer not to say</option>
+                  <option value="female">{t('register.female')}</option>
+                  <option value="male">{t('register.male')}</option>
+                  <option value="other">{t('register.other')}</option>
+                  <option value="prefer_not_to_say">{t('register.prefer_not')}</option>
                 </select>
               </div>
 
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Date of Birth
+                  {t('register.dob')}
                 </label>
                 <input
                   type="date"
@@ -197,7 +199,7 @@ export const RegisterView: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
                 <span>
-                  Note: Urja Kaushal priority demographic is youth 18–35, but enrollment is still open to all village community members.
+                  {t('register.age_note')}
                 </span>
               </div>
             )}
@@ -205,7 +207,7 @@ export const RegisterView: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Educational Qualification
+                  {t('register.education')}
                 </label>
                 <select
                   value={education}
@@ -222,7 +224,7 @@ export const RegisterView: React.FC = () => {
 
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Village Cluster (હબ ક્લસ્ટર)
+                  {t('register.cluster')}
                 </label>
                 <select
                   value={cluster}
@@ -244,7 +246,7 @@ export const RegisterView: React.FC = () => {
                 onClick={() => setStep(1)}
                 className="px-4 py-2 rounded-xl bg-slate-100 font-semibold"
               >
-                Back
+                {t('register.back')}
               </button>
               <button
                 type="button"
@@ -254,7 +256,7 @@ export const RegisterView: React.FC = () => {
                 }}
                 className="px-6 py-2.5 rounded-xl bg-solar-600 text-white font-bold shadow"
               >
-                Next Step →
+                {t('register.next')}
               </button>
             </div>
           </div>
@@ -265,14 +267,14 @@ export const RegisterView: React.FC = () => {
           <form onSubmit={handleCompleteRegistration} className="space-y-4 text-xs">
             <div>
               <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                Preferred Batch Timing
+                {t('register.timing')}
               </label>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { id: 'women_only', label: 'Women-Only Batch (10 AM - 1 PM)' },
-                  { id: 'morning', label: 'Morning Shift (8 AM - 12 PM)' },
-                  { id: 'afternoon', label: 'Afternoon Shift (1 PM - 5 PM)' },
-                  { id: 'evening', label: 'Flexible Evening (After farming)' },
+                  { id: 'women_only', label: t('register.women_batch') },
+                  { id: 'morning', label: t('register.morning') },
+                  { id: 'afternoon', label: t('register.afternoon') },
+                  { id: 'evening', label: t('register.evening') },
                 ].map(t => (
                   <label
                     key={t.id}
@@ -302,14 +304,14 @@ export const RegisterView: React.FC = () => {
                   onChange={e => setShgMember(e.target.checked)}
                   className="w-4 h-4 accent-solar-600 rounded"
                 />
-                <span>Member of a Sakhi Mandal / Self-Help Group (SHG)</span>
+                <span>{t('register.shg')}</span>
               </label>
               {shgMember && (
                 <input
                   type="text"
                   value={shgName}
                   onChange={e => setShgName(e.target.value)}
-                  placeholder="Enter SHG Name (e.g. Radhe Krishna Mandal)"
+                  placeholder={t('register.shg_name')}
                   className="w-full p-2 rounded-lg border border-sun-300 bg-white"
                 />
               )}
@@ -325,7 +327,7 @@ export const RegisterView: React.FC = () => {
                   required
                 />
                 <span className="text-slate-600 dark:text-slate-300">
-                  I agree to Urja Kaushal training terms, monthly attendance stipend tracking, and privacy guidelines.
+                  {t('register.terms')}
                 </span>
               </label>
 
@@ -337,7 +339,7 @@ export const RegisterView: React.FC = () => {
                   className="mt-0.5 w-4 h-4 accent-solar-600 rounded"
                 />
                 <span className="text-slate-600 dark:text-slate-300">
-                  Allow Reliance vendor solar EPC partners to view my certificate upon course completion for employment linkage.
+                  {t('register.job_consent')}
                 </span>
               </label>
             </div>
@@ -348,13 +350,13 @@ export const RegisterView: React.FC = () => {
                 onClick={() => setStep(2)}
                 className="px-4 py-2 rounded-xl bg-slate-100 font-semibold"
               >
-                Back
+                {t('register.back')}
               </button>
               <button
                 type="submit"
                 className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold "
               >
-                Complete Registration & Take Readiness Quiz →
+                {t('register.complete')}
               </button>
             </div>
           </form>
@@ -363,4 +365,3 @@ export const RegisterView: React.FC = () => {
     </div>
   );
 };
-

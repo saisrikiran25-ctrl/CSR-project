@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Assessment, AssessmentAttempt } from '../../types';
 import { SEEDED_QUESTIONS } from '../../mocks/seedData';
 import { AssessmentRunner } from './AssessmentRunner';
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react';
 
 export const AssessmentHubView: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [activeExam, setActiveExam] = useState<Assessment | null>(null);
   const [examAttempt, setExamAttempt] = useState<AssessmentAttempt | null>(null);
 
@@ -112,30 +114,30 @@ export const AssessmentHubView: React.FC = () => {
             </div>
 
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
-              {examAttempt.passed ? 'Congratulations! Exam Passed' : 'Assessment Incomplete'}
+              {examAttempt.passed ? t('assessment.passed') : t('assessment.incomplete')}
             </h2>
 
             <p className="text-xs text-slate-500">
-              Submitted on {new Date(examAttempt.completedAt!).toLocaleTimeString()}
+              {t('assessment.submitted')} {new Date(examAttempt.completedAt!).toLocaleTimeString()}
             </p>
 
             <div className="flex items-center justify-center gap-6 pt-3">
               <div>
-                <span className="text-xs font-bold text-slate-400">Your Score</span>
+                <span className="text-xs font-bold text-slate-400">{t('assessment.score')}</span>
                 <div className="text-3xl font-extrabold text-solar-700">
                   {examAttempt.percentage}%
                 </div>
               </div>
               <div className="h-8 w-px bg-slate-200" />
               <div>
-                <span className="text-xs font-bold text-slate-400">Total Points</span>
+                <span className="text-xs font-bold text-slate-400">{t('assessment.points')}</span>
                 <div className="text-3xl font-extrabold text-slate-900 dark:text-white">
                   {examAttempt.score} / {examAttempt.maxScore}
                 </div>
               </div>
               <div className="h-8 w-px bg-slate-200" />
               <div>
-                <span className="text-xs font-bold text-slate-400">Pass Mark</span>
+                <span className="text-xs font-bold text-slate-400">{t('assessment.pass_mark')}</span>
                 <div className="text-3xl font-extrabold text-emerald-600">60%</div>
               </div>
             </div>
@@ -144,21 +146,21 @@ export const AssessmentHubView: React.FC = () => {
           {/* Competency Strengths & Weaknesses Breakdown */}
           <div className="space-y-3 text-xs">
             <h4 className="font-bold text-slate-900 dark:text-white ">
-              Assessed Skill Performance Breakdown
+              {t('assessment.breakdown')}
             </h4>
 
             <div className="space-y-2">
               <div className="p-3 rounded-xl bg-emerald-50 dark:bg-slate-800 text-emerald-950 dark:text-emerald-300 flex items-center justify-between">
                 <span>DC String Wiring & 1000V Dielectric Safety PPE</span>
-                <strong className="text-emerald-700">100% (Mastered)</strong>
+                <strong className="text-emerald-700">100% ({t('assessment.mastered')})</strong>
               </div>
               <div className="p-3 rounded-xl bg-emerald-50 dark:bg-slate-800 text-emerald-950 dark:text-emerald-300 flex items-center justify-between">
                 <span>Solar Inverter Hotspot Identification & Anti-Islanding</span>
-                <strong className="text-emerald-700">100% (Mastered)</strong>
+                <strong className="text-emerald-700">100% ({t('assessment.mastered')})</strong>
               </div>
               <div className="p-3 rounded-xl bg-sun-50 dark:bg-slate-800 text-amber-950 dark:text-amber-300 flex items-center justify-between">
                 <span>4:1 Ladder Slope Math & CO2 Factor Formula</span>
-                <strong className="text-amber-800">Satisfactory</strong>
+                <strong className="text-amber-800">{t('assessment.satisfactory')}</strong>
               </div>
             </div>
           </div>
@@ -168,10 +170,10 @@ export const AssessmentHubView: React.FC = () => {
             <div className="p-5 bg-amber-50 dark:bg-slate-800 rounded-2xl border border-sun-300 text-center space-y-3">
               <Star className="w-6 h-6 text-sun-500 mx-auto" />
               <h3 className="text-base font-bold text-amber-950 dark:text-sun-300">
-                Official Verifiable Certificate Unlocked!
+                {t('assessment.certificate')}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto">
-                You have met all Suryamitra curriculum requirements. Your credential has been registered in the platform registry.
+                {t('assessment.certificate_text')}
               </p>
 
               <div className="pt-2">
@@ -186,7 +188,7 @@ export const AssessmentHubView: React.FC = () => {
               className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs shadow hover:bg-slate-900 transition-all"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Back to Assessment Hub</span>
+              <span>{t('assessment.back_hub')}</span>
             </button>
           </div>
         </div>
@@ -197,13 +199,13 @@ export const AssessmentHubView: React.FC = () => {
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <span className="text-xs font-bold text-solar-600 bg-solar-50 px-2.5 py-0.5 rounded">
-                Assessment & Certification Hub
+                {t('assessment.hub')}
               </span>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
-                Vocational Tests & Micro-Credentials
+                {t('assessment.title')}
               </h1>
               <p className="text-xs text-slate-500">
-                Third-party evaluated quizzes, hands-on rubrics, and fraud-proof digital certificates.
+                {t('assessment.subtitle')}
               </p>
             </div>
           </div>
@@ -222,29 +224,29 @@ export const AssessmentHubView: React.FC = () => {
                     </span>
                     {exam.isFinalCertificateExam && (
                       <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-slate-950">
-                        CERTIFICATE ELIGIBLE
+                        {t('assessment.eligible')}
                       </span>
                     )}
                   </div>
 
                   <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                    {exam.title.en}
+                    {exam.title[(i18n.language || 'gu') as 'gu' | 'hi' | 'en'] || exam.title.en}
                   </h3>
 
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    {exam.description.en}
+                    {exam.description[(i18n.language || 'gu') as 'gu' | 'hi' | 'en'] || exam.description.en}
                   </p>
 
                   <div className="flex items-center gap-4 text-xs text-slate-400 font-medium pt-1">
                     <div className="flex items-center gap-1">
                       <Timer className="w-3.5 h-3.5 text-sun-500" />
-                      <span>{exam.durationMinutes} Minutes</span>
+                      <span>{exam.durationMinutes} {t('assessment.minutes')}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Award className="w-3.5 h-3.5 text-emerald-500" />
-                      <span>Pass Mark: {exam.passPercentage}%</span>
+                      <span>{t('assessment.pass')}: {exam.passPercentage}%</span>
                     </div>
-                    <div>{exam.questionIds.length} Questions</div>
+                    <div>{exam.questionIds.length} {t('assessment.questions')}</div>
                   </div>
                 </div>
 
@@ -253,7 +255,7 @@ export const AssessmentHubView: React.FC = () => {
                   className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95 whitespace-nowrap"
                 >
                   <Award className="w-4 h-4" />
-                  <span>Start Assessment</span>
+                  <span>{t('assessment.start')}</span>
                 </button>
               </div>
             ))}
@@ -263,4 +265,3 @@ export const AssessmentHubView: React.FC = () => {
     </div>
   );
 };
-

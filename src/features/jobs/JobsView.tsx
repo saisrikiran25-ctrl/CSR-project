@@ -3,6 +3,7 @@ import { Job, JobApplication } from '../../types';
 import { db } from '../../lib/db';
 import { SEEDED_JOBS } from '../../mocks/seedData';
 import { useAuth } from '../auth/AuthContext';
+import { useTranslation } from 'react-i18next';
 import {
   Briefcase,
   Building2,
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react';
 
 export const JobsView: React.FC = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [appliedJobs, setAppliedJobs] = useState<Record<string, string>>({
@@ -35,7 +37,7 @@ export const JobsView: React.FC = () => {
   const handleApply = (jobId: string) => {
     setAppliedJobs(prev => ({ ...prev, [jobId]: 'applied' }));
     setShowAppModal(null);
-    alert('Applied successfully using your Urja Kaushal Certified Profile!');
+    alert(t('jobs.applied'));
   };
 
   const filteredJobs = jobs.filter(j => {
@@ -51,28 +53,28 @@ export const JobsView: React.FC = () => {
       <div className="bg-ink-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-sun-300 bg-sun-400/20 px-3 py-1 rounded-full border border-sun-400/30">
-            Stream D — Livelihoods & Reliance Vendor Placement
+            {t('jobs.eyebrow')}
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold mt-2 tracking-tight">
-            Job & Apprenticeship Board
+            {t('jobs.title')}
           </h1>
           <p className="text-xs text-slate-300 mt-1 max-w-xl">
-            Linking certified solar technicians to the Jamnagar Giga Complex perimeter and Saurashtra EPC contractors.
+            {t('jobs.subtitle')}
           </p>
         </div>
 
         <div className="bg-white/10 px-4 py-3 rounded-2xl border border-white/20 text-center min-w-[140px]">
           <div className="text-2xl font-extrabold text-sun-400">74%</div>
-          <div className="text-xs text-slate-300 font-bold">Placement Rate</div>
+          <div className="text-xs text-slate-300 font-bold">{t('jobs.placement')}</div>
         </div>
       </div>
 
       {/* Filter Tabs */}
       <div className="flex bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 gap-2 text-xs font-bold w-fit">
         {[
-          { id: 'all', label: 'All Openings' },
-          { id: 'full_time', label: 'Full-Time Technician' },
-          { id: 'apprenticeship', label: 'Paid Apprenticeships' },
+          { id: 'all', label: t('jobs.all') },
+          { id: 'full_time', label: t('jobs.full_time') },
+          { id: 'apprenticeship', label: t('jobs.apprenticeship') },
         ].map(f => (
           <button
             key={f.id}
@@ -105,7 +107,7 @@ export const JobsView: React.FC = () => {
                   </span>
                   {job.isRelianceVendor && (
                     <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sun-100 text-amber-900 border border-sun-300">
-                      RELIANCE PARTNER VENDOR
+                      {t('jobs.reliance')}
                     </span>
                   )}
                   <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">
@@ -122,7 +124,7 @@ export const JobsView: React.FC = () => {
                   <span>{job.employerName}</span>
                   <span>•</span>
                   <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                  <span>{job.location} ({job.cluster} Cluster)</span>
+                  <span>{job.location} ({t('jobs.cluster', { cluster: job.cluster })})</span>
                 </p>
 
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
@@ -153,11 +155,11 @@ export const JobsView: React.FC = () => {
                       }`}
                     >
                       <CheckCircle className="w-4 h-4 text-emerald-600" />
-                      <span>Status: {appStatus.toUpperCase()}</span>
+                      <span>{t('jobs.status', { status: appStatus.toUpperCase() })}</span>
                     </span>
                     {appStatus === 'shortlisted' && (
                       <span className="text-xs text-amber-700 font-semibold mt-1">
-                        Interview scheduled with EPC supervisor
+                        {t('jobs.interview')}
                       </span>
                     )}
                   </div>
@@ -166,11 +168,11 @@ export const JobsView: React.FC = () => {
                     onClick={() => handleApply(job.id)}
                     className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all active:scale-95"
                   >
-                    <span>One-Tap Apply</span>
+                    <span>{t('jobs.apply')}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 )}
-                <span className="text-xs text-slate-400">{job.vacancies} vacancies open</span>
+                <span className="text-xs text-slate-400">{job.vacancies} {t('jobs.vacancies')}</span>
               </div>
             </div>
           );
@@ -179,4 +181,3 @@ export const JobsView: React.FC = () => {
     </div>
   );
 };
-

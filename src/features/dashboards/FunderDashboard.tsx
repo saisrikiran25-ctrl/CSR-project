@@ -12,8 +12,10 @@ import {
   MapPin,
   CheckCircle,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const FunderDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedHub, setSelectedHub] = useState(SEEDED_HUBS[0]);
 
   // Aggregate totals
@@ -33,7 +35,7 @@ export const FunderDashboard: React.FC = () => {
             Reliance Foundation CSR & Sustainability Oversight
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold mt-2 tracking-tight">
-            Executive Clean Energy & Livelihood Dashboard
+            {t('dashboard.funder')}
           </h1>
           <p className="text-xs text-slate-300 mt-1">
             Rural Jamnagar, Gujarat • ₹9.5 Cr 36-Month Investment • 10 Hub Clusters
@@ -45,7 +47,7 @@ export const FunderDashboard: React.FC = () => {
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar-600 hover:bg-solar-700 text-white font-bold text-xs transition-all"
         >
           <Download className="w-4 h-4 text-slate-950" />
-          <span>Download CSR Report (PDF)</span>
+          <span>{t('dashboard.report')}</span>
         </button>
       </div>
 
@@ -257,4 +259,3 @@ export const FunderDashboard: React.FC = () => {
     </div>
   );
 };
-
